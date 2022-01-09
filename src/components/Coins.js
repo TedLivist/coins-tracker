@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import getCoin from '../helpers/getCoin';
+import { trackCoin } from '../redux/coins/coins';
 
 const Coins = () => {
   
@@ -20,7 +21,7 @@ const Coins = () => {
   
   return (
     <h1>
-      {coins[0].id}
+      {coins && coins[0].id}
     </h1>
   );
 }
