@@ -3,6 +3,7 @@ import getCoin from '../helpers/getCoin';
 import { useDispatch, useSelector } from 'react-redux';
 import { trackCoin } from '../redux/coins/coins';
 import SearchCoin from './SearchCoin';
+import OneCoin from './OneCoin';
 
 const Coins = () => {
 
@@ -24,9 +25,9 @@ const Coins = () => {
     <div>
       <h2>The Coins page</h2>
       <SearchCoin />
-        {coins.map((coin) => {
-          console.log(coin.id)
-        })}
+        {coins.map((coin) => (
+          <OneCoin key={coin.id} coinId={coin.id} />
+        ))}
     </div>
   );
 }

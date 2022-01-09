@@ -15,7 +15,6 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Homepage />} />
           <Route path="coins" element={<Coins />} />
-          <Route path="onecoin" element={<OneCoin />} />
         </Routes>
       </BrowserRouter>
     </Provider>

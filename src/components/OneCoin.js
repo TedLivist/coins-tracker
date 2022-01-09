@@ -1,12 +1,13 @@
-import React, { useEffect } from 'react';
-import getCoin from '../helpers/getCoin';
-import { useDispatch, useSelector } from 'react-redux';
-import { trackCoin } from '../redux/coins/coins';
+import React from 'react';
 
-const OneCoin = () => {
+const OneCoin = (props) => {
+
+  const { coinId } = props
 
   return (
-    <h2>I am the Coin page</h2>
+    <div>
+      <p>{coinId}</p>
+    </div>
   );
 }
  

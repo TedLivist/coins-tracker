@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import getCoin from '../helpers/getCoin';
+import { trackCoin } from '../redux/coins/coins';
 
 const SearchCoin = () => {
+
+  const dispatch = useDispatch()
 
   const [coinItem, setCoinItem] = useState('')
   const [error, setError] = useState('')
@@ -21,11 +25,12 @@ const SearchCoin = () => {
       if (data.error) {
         setError(data.error)
       } else {
+        dispatch(trackCoin(data))
         console.log('Coin exists')
         setError('')
       }
     } else {
-      console.log('Trimmed: ', trimmedCoin.length)
+      setError('Cannot search meaningless coin')
     }
     
   }
