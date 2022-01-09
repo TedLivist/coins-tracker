@@ -4,7 +4,7 @@ import thunk from "redux-thunk";
 import coinsReducer from './coins/coins';
 
 const reducer = combineReducers({
-  coinsReducer
+  coins: coinsReducer
 })
 
 const middleware = [logger, thunk]

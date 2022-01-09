@@ -1,9 +1,13 @@
+import { Provider } from 'react-redux';
+import store from './redux/configureStore';
 import './App.css';
-import Coin from './components/Coin';
+import OneCoin from './components/OneCoin';
 
 function App() {
   return (
-    <Coin />
+    <Provider store={store}>
+      <OneCoin />
+    </Provider>
   );
 }
 
