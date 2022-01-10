@@ -24,7 +24,6 @@ const Coins = () => {
   return (
     <div>
       <h2>The Coins page</h2>
-      <SearchCoin trackedCoins={coins} />
         {coins.map((coin) => (
           <OneCoin key={coin.id} coinId={coin.id} />
         ))}

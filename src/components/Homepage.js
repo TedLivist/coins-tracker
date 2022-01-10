@@ -1,9 +1,16 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import SearchCoin from './SearchCoin';
 
 const Homepage = () => {
+
+  const []
+
+  const coins = useSelector(state => state.coins)
+
   return (
     <div>
-      I am the Homepage
+      <SearchCoin trackedCoins={coins} />
     </div>
   );
 }

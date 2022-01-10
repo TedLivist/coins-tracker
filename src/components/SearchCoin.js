@@ -9,6 +9,7 @@ const SearchCoin = (props) => {
 
   const [coinItem, setCoinItem] = useState('')
   const [error, setError] = useState('')
+  const [homeCoin, setHomeCoin] = useState('')
 
   const { trackedCoins } = props
   console.log('Tracked Coins: ', trackedCoins)
@@ -22,30 +23,55 @@ const SearchCoin = (props) => {
     e.preventDefault()
 
     let trimmedCoin = coinItem.trim()
+
     if (trimmedCoin.length > 0) {
-      trimmedCoin = trimmedCoin.replace(/\s/g, '-')
+      trimmedCoin.replace(/\s/g, '-')
       const data = await getCoin(trimmedCoin)
       if (data.error) {
         setError(data.error)
-      } else if (trackedCoins.length < 3) {
-        dispatch(trackCoin(data))
-        console.log('Coin has been added')
-        setError('')
       } else {
-        setError("Can't add more than 3 coins")
+        setHomeCoin(data.id)
       }
     } else {
-      setError('Cannot search meaningless coin')
+      setError('Cannot search meaningless coin')  
     }
-    
   }
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault()
+
+  //   let trimmedCoin = coinItem.trim()
+  //   if (trimmedCoin.length > 0) {
+  //     trimmedCoin = trimmedCoin.replace(/\s/g, '-')
+  //     const data = await getCoin(trimmedCoin)
+  //     if (data.error) {
+  //       setError(data.error)
+  //     } else if (trackedCoins.length < 3) {
+  //       dispatch(trackCoin(data))
+  //       console.log('Coin has been added')
+  //       setError('')
+  //     } else {
+  //       setError("Can't add more than 3 coins")
+  //     }
+  //   } else {
+  //     setError('Cannot search meaningless coin')
+  //   }
+  // }
+
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" name="coinItem" value={coinItem} onChange={handleSearch} />
-      {error}
-      <button type='submit'>Search Coin</button>
-    </form>
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input type="text" name="coinItem" value={coinItem} onChange={handleSearch} />
+        {error}
+        <button type='submit'>Search Coin</button>
+      </form>
+      <div>
+        {homeCoin}
+        {}
+        <button>{}</button>
+      </div>
+      {homeCoin}
+    </div>
   );
 }
  
