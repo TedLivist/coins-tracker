@@ -16,6 +16,7 @@ const Homepage = () => {
   return (
     <div>
       <SearchCoin trackedCoins={coins} parentCallback={callback} />
+      <h3>{searchCoin}</h3>
     </div>
   );
 }

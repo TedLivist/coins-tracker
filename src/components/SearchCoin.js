@@ -32,27 +32,6 @@ const SearchCoin = (props) => {
     }
   }
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault()
-
-  //   let trimmedCoin = coinItem.trim()
-  //   if (trimmedCoin.length > 0) {
-  //     trimmedCoin = trimmedCoin.replace(/\s/g, '-')
-  //     const data = await getCoin(trimmedCoin)
-  //     if (data.error) {
-  //       setError(data.error)
-  //     } else if (trackedCoins.length < 3) {
-  //       dispatch(trackCoin(data))
-  //       console.log('Coin has been added')
-  //       setError('')
-  //     } else {
-  //       setError("Can't add more than 3 coins")
-  //     }
-  //   } else {
-  //     setError('Cannot search meaningless coin')
-  //   }
-  // }
-
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -60,9 +39,6 @@ const SearchCoin = (props) => {
         {error}
         <button type='submit'>Search Coin</button>
       </form>
-      <div>
-        <button>{}</button>
-      </div>
     </div>
   );
 }
