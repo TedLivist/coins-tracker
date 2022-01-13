@@ -1,19 +1,13 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import getCoin from '../helpers/getCoin';
-import { trackCoin } from '../redux/coins/coins';
 
 const SearchCoin = (props) => {
-
-  const dispatch = useDispatch()
 
   const [coinItem, setCoinItem] = useState('')
   const [error, setError] = useState('')
   const [homeCoin, setHomeCoin] = useState('')
 
-  const { trackedCoins } = props
-  console.log('Tracked Coins: ', trackedCoins)
-  console.log(trackedCoins.length)
+  const { parentCallback } = props
 
   const handleSearch = (e) => {
     setCoinItem(e.target.value)
@@ -25,12 +19,13 @@ const SearchCoin = (props) => {
     let trimmedCoin = coinItem.trim()
 
     if (trimmedCoin.length > 0) {
-      trimmedCoin.replace(/\s/g, '-')
+      trimmedCoin = trimmedCoin.replace(/\s/g, '-')
       const data = await getCoin(trimmedCoin)
       if (data.error) {
         setError(data.error)
       } else {
         setHomeCoin(data.id)
+        parentCallback(homeCoin)
       }
     } else {
       setError('Cannot search meaningless coin')  
@@ -66,11 +61,8 @@ const SearchCoin = (props) => {
         <button type='submit'>Search Coin</button>
       </form>
       <div>
-        {homeCoin}
-        {}
         <button>{}</button>
       </div>
-      {homeCoin}
     </div>
   );
 }
