@@ -23,6 +23,9 @@ const SearchCoin = (props) => {
       const data = await getCoin(trimmedCoin)
       if (data.error) {
         setError(data.error)
+        setInterval(() => {
+          setError('')
+        }, 3000);
       } else {
         setHomeCoin(data.id)
         parentCallback(homeCoin)
