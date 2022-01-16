@@ -22,13 +22,15 @@ const SearchCoin = (props) => {
       trimmedCoin = trimmedCoin.replace(/\s/g, '-')
       const data = await getCoin(trimmedCoin)
       if (data.error) {
+        console.log('Set error')
         setError(data.error)
         setInterval(() => {
           setError('')
         }, 3000);
       } else {
-        setHomeCoin(data.id)
-        parentCallback(homeCoin)
+        console.log('Check data')
+        const { id } = data
+        parentCallback(id)
       }
     } else {
       setError('Cannot search meaningless coin')  
