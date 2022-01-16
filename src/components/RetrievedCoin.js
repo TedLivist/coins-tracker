@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import getCoin from '../helpers/getCoin';
 import { trackCoin } from '../redux/coins/coins';
+import TrackingButton from './TrackingButton';
 
 const RetrievedCoin = (props) => {
   const dispatch = useDispatch()
@@ -19,7 +20,7 @@ const RetrievedCoin = (props) => {
   return (
     <div>
       <strong>Retir</strong> {retrievedCoin}
-      { retrievedCoin && (trackedCoins.length < 3) ? <button onClick={handleTracking}>Track this coin</button> : '' }
+      { retrievedCoin && (trackedCoins.length < 3) ? <TrackingButton trackingFunc={handleTracking} buttonText='Track this coin' /> : '' }
     </div>
   );
 }

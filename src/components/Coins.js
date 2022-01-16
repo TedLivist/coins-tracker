@@ -8,15 +8,15 @@ import OneCoin from './OneCoin';
 const Coins = () => {
 
   const dispatch = useDispatch()
-  const coin = 'bitcoin'
+  // const coin = 'bitcoin'
 
-  useEffect(() => {
-    const getCoinData = async () => {
-      const data = await getCoin(coin);
-      await dispatch(trackCoin(data))
-    }
-    getCoinData();
-  }, [dispatch])
+  // useEffect(() => {
+  //   const getCoinData = async () => {
+  //     const data = await getCoin(coin);
+  //     await dispatch(trackCoin(data))
+  //   }
+  //   getCoinData();
+  // }, [dispatch])
 
   const coins = useSelector(state => state.coins)
   console.log(coins)
