@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import coinDoesNotExist from '../helpers/coinCheck';
 import getCoin from '../helpers/getCoin';
 import { trackCoin } from '../redux/coins/coins';
 import TrackingButton from './TrackingButton';
@@ -9,21 +10,10 @@ const RetrievedCoin = (props) => {
   const { retrievedCoin } = props
 
   const trackedCoins = useSelector((state) => state.coins)
-  console.log('Tracked Coins', trackedCoins)
 
   const handleTracking = async () => {
     const data = await getCoin(retrievedCoin)
-    console.log(data)
     dispatch(trackCoin(data))
-  }
-
-  const coinDoesNotExist = (coins, coin) => {
-    for (let i = 0; i < coins.length; i++) {
-      if (coins[i].id == coin) {
-        return false
-      }
-    }
-    return true
   }
 
   return (

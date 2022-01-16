@@ -6,7 +6,7 @@ import TrackingButton from './TrackingButton';
 const OneCoin = (props) => {
   const dispatch = useDispatch()
 
-  const { coinId } = props
+  const { coinId, lastPrice } = props
 
   const handleUntracking = () => {
     dispatch(untrackCoin(coinId))
@@ -14,7 +14,7 @@ const OneCoin = (props) => {
 
   return (
     <div>
-      <p>{coinId} <TrackingButton trackingFunc={handleUntracking} buttonText='Untrack this coin' /> </p>
+      <p>{coinId} | {lastPrice} <TrackingButton trackingFunc={handleUntracking} buttonText='Untrack this coin' /> </p>
     </div>
   );
 }

@@ -9,7 +9,7 @@ const Coins = () => {
     <div>
       <h2>The Coins page</h2>
         {coins.map((coin) => (
-          <OneCoin key={coin.id} coinId={coin.id} />
+          <OneCoin key={coin.id} coinId={coin.id} lastPrice={coin.market_data.current_price.usd} />
         ))}
     </div>
   );

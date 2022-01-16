@@ -5,7 +5,6 @@ const SearchCoin = (props) => {
 
   const [coinItem, setCoinItem] = useState('')
   const [error, setError] = useState('')
-  const [homeCoin, setHomeCoin] = useState('')
 
   const { parentCallback } = props
 
@@ -22,13 +21,11 @@ const SearchCoin = (props) => {
       trimmedCoin = trimmedCoin.replace(/\s/g, '-')
       const data = await getCoin(trimmedCoin)
       if (data.error) {
-        console.log('Set error')
         setError(data.error)
         setInterval(() => {
           setError('')
         }, 3000);
       } else {
-        console.log('Check data')
         const { id } = data
         parentCallback(id)
       }

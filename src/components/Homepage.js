@@ -8,7 +8,7 @@ const Homepage = () => {
 
   const coins = useSelector(state => state.coins)
   useEffect(() => {
-    if (searchCoin == '' && coins.length > 1) {
+    if (searchCoin == '' && coins.length > 0) {
       setSearchedCoin(coins[0].id)
     }
   }, [])
