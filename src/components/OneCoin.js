@@ -1,12 +1,15 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { untrackCoin } from '../redux/coins/coins';
 import TrackingButton from './TrackingButton';
 
 const OneCoin = (props) => {
+  const dispatch = useDispatch()
 
   const { coinId } = props
 
   const handleUntracking = () => {
-    console.log('Incoming untracking...')
+    dispatch(untrackCoin(coinId))
   }
 
   return (
