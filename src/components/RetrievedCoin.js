@@ -17,10 +17,23 @@ const RetrievedCoin = (props) => {
     dispatch(trackCoin(data))
   }
 
+  const coinDoesNotExist = (coins, coin) => {
+    for (let i = 0; i < coins.length; i++) {
+      if (coins[i].id == coin) {
+        return false
+      }
+    }
+    return true
+  }
+
+  const arr = [{id: 'bitcoin', sym: 'btc'}, {id: 'fear', sym: 'fear'}]
+
+  console.log(coinDoesNotExist(arr, 'ethereum'))
+
   return (
     <div>
       <strong>Retir</strong> {retrievedCoin}
-      { retrievedCoin && (trackedCoins.length < 3) ? <TrackingButton trackingFunc={handleTracking} buttonText='Track this coin' /> : '' }
+      { retrievedCoin && (trackedCoins.length < 3) && coinDoesNotExist(trackedCoins, retrievedCoin) ? <TrackingButton trackingFunc={handleTracking} buttonText='Track this coin' /> : '' }
     </div>
   );
 }
