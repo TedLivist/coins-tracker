@@ -17,8 +17,6 @@ const Homepage = () => {
     setSearchedCoin(coin)
   }, [setSearchedCoin])
 
-  console.log('Searched coin', searchCoin)
-
   return (
     <div>
       <SearchCoin trackedCoins={coins} parentCallback={callback} />

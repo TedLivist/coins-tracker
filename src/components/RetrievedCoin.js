@@ -26,10 +26,6 @@ const RetrievedCoin = (props) => {
     return true
   }
 
-  const arr = [{id: 'bitcoin', sym: 'btc'}, {id: 'fear', sym: 'fear'}]
-
-  console.log(coinDoesNotExist(arr, 'ethereum'))
-
   return (
     <div>
       <strong>Retir</strong> {retrievedCoin}
