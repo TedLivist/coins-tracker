@@ -13,7 +13,8 @@ const RetrievedCoin = (props) => {
 
   const handleTracking = async () => {
     const data = await getCoin(retrievedCoin)
-    dispatch(trackCoin(data))
+    const dataAndQty = {...data, qty: 0};
+    dispatch(trackCoin(dataAndQty))
   }
 
   return (
