@@ -20,7 +20,7 @@ const OneCoin = (props) => {
       <div>
         <button onClick={() => setIsOpen(true)}>Open Modal</button>
 
-        <CoinModal open={isOpen} onClose={() => setIsOpen(false)} />
+        <CoinModal open={isOpen} coinId={coinId} quantity={quantity} onClose={() => setIsOpen(false)} />
       </div>      
     </div>
   );
