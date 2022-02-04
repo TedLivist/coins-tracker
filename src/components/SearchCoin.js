@@ -5,7 +5,6 @@ const SearchCoin = (props) => {
 
   const [coinItem, setCoinItem] = useState('')
   const [error, setError] = useState('')
-  const [homeCoin, setHomeCoin] = useState('')
 
   const { parentCallback } = props
 
@@ -27,8 +26,8 @@ const SearchCoin = (props) => {
           setError('')
         }, 3000);
       } else {
-        setHomeCoin(data.id)
-        parentCallback(homeCoin)
+        const { id } = data
+        parentCallback(id)
       }
     } else {
       setError('Cannot search meaningless coin')  
