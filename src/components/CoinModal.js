@@ -15,6 +15,7 @@ const CoinModal = ({ open, coinId, quantity, onClose }) => {
     e.preventDefault()
 
     dispatch(changeQuantity({id: coinId, qty: parseFloat(modalQty)}))
+    onClose()
   }
 
   if (!open) return null
