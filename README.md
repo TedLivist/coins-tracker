@@ -1,4 +1,11 @@
-# Getting Started with Create React App
+# Coins Tracker
+
+> This is a portfolio tracking app. Built with React on the Frontend and Rails on the backend
+
+## Built with
+
+- React
+- Redux
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

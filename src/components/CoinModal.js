@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { changeQuantity } from '../redux/coins/coins';
 
 const CoinModal = ({ open, coinId, quantity, onClose }) => {
+  const dispatch = useDispatch()
   const [modalQty, setModalQty] = useState(quantity)
 
 
@@ -11,7 +14,8 @@ const CoinModal = ({ open, coinId, quantity, onClose }) => {
   const handleModalSubmit = (e) => {
     e.preventDefault()
 
-    console.log(modalQty)
+    dispatch(changeQuantity({id: coinId, qty: parseFloat(modalQty)}))
+    onClose()
   }
 
   if (!open) return null
