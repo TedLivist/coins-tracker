@@ -1,7 +1,6 @@
 import { Provider } from 'react-redux';
 import store from './redux/configureStore';
 import './App.css';
-import OneCoin from './components/OneCoin';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Coins from './components/Coins';
 import Navbar from './components/Navbar';

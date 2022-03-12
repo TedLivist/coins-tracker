@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { auth } from '../../helpers/auth';
 
 const Login = () => {
 
@@ -8,10 +9,10 @@ const Login = () => {
     setUsername(e.target.value)
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
-    console.log(username)
+    auth(username)
   }
 
   return (
