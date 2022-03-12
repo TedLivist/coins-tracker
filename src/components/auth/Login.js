@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
-import { auth } from '../../helpers/auth';
+import { useDispatch } from 'react-redux';
+import { authUser } from '../../redux/users/users';
 
 const Login = () => {
+
+  const dispatch = useDispatch()
 
   const [username, setUsername] = useState('')
 
@@ -12,7 +15,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    auth(username)
+    dispatch(authUser(username))
   }
 
   return (

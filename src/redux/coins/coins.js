@@ -1,6 +1,7 @@
 const TRACK_COIN = 'coinsTracker/coins/TRACK_COIN';
 const UNTRACK_COIN = 'coinsTracker/coins/UNTRACK_COIN';
-const CHANGEQUANTITY = 'coinsTracker/coins/CHANGEQUANTITY';
+const CHANGE_QUANTITY = 'coinsTracker/coins/CHANGE_QUANTITY';
+
 
 const initialState = [];
 
@@ -15,7 +16,7 @@ export const untrackCoin = payload => ({
 })
 
 export const changeQuantity = payload => ({
-  type: CHANGEQUANTITY,
+  type: CHANGE_QUANTITY,
   payload,
 })
 
@@ -28,7 +29,7 @@ const reducer = (state = initialState, action) => {
       ]
     case UNTRACK_COIN:
       return state.filter((coin) => coin.id !== action.payload)
-    case CHANGEQUANTITY:
+    case CHANGE_QUANTITY:
       return state.map((coin) => {
           if (coin.id !== action.payload.id) {
             return { ...coin };
