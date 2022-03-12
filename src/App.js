@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Coins from './components/Coins';
 import Navbar from './components/Navbar';
 import Homepage from './components/Homepage';
+import Login from './components/auth/Login';
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Homepage />} />
           <Route path="coins" element={<Coins />} />
+
+          <Route path="login" element={<Login />} />
         </Routes>
       </BrowserRouter>
     </Provider>
