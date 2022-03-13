@@ -20,13 +20,13 @@ export const loginUser = (username) => async (dispatch)  => {
   const user = await auth('login', username)
   if (user.error === undefined) {
     dispatch(authenticateUser(user))
+    return 'loggedIn'
   }
 }
 
 const reducer = (state = initialState, action) => {
   switch(action.type) {
     case AUTHENTICATE_USER:
-      console.log(action.payload)
       return {
         ...state,
         user: action.payload
