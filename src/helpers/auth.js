@@ -1,6 +1,12 @@
-export const auth = async (username) => {
+export const auth = async (authType, username) => {
+  let url = ''
+  if (authType === 'login') {
+    url = 'http://localhost:3000/api/v1/login'
+  } else if (authType === 'signup') {
+    url = 'http://localhost:3000/api/v1/users'
+  }
   console.log(username)
-  const response = await fetch('http://localhost:3000/api/v1/login', {
+  const response = await fetch(url, {
     method: 'POST',
     mode: 'cors',
     credentials: 'same-origin',

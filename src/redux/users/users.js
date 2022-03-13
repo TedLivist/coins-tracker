@@ -9,9 +9,18 @@ export const authenticateUser = payload => ({
   payload,
 })
 
-export const authUser = (username) => async (dispatch)  => {
-  const user = await auth(username)
-  dispatch(authenticateUser(user))
+export const signupUser = (username) => async (dispatch)  => {
+  const user = await auth('signup', username)
+  if (user.error === undefined) {
+    dispatch(authenticateUser(user))
+  }
+}
+
+export const loginUser = (username) => async (dispatch)  => {
+  const user = await auth('login', username)
+  if (user.error === undefined) {
+    dispatch(authenticateUser(user))
+  }
 }
 
 const reducer = (state = initialState, action) => {

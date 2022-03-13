@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { loginUser } from '../../redux/users/users';
+import { signupUser } from '../../redux/users/users';
 
-const Login = () => {
-
+const Signup = () => {
   const dispatch = useDispatch()
 
   const [username, setUsername] = useState('')
@@ -15,15 +14,15 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    dispatch(loginUser(username))
+    dispatch(signupUser(username))
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <input type="text" name='username' value={username} onChange={handleUsername} required />
-      <button type='submit'>Log in</button>
+      <button type='submit'>Sign up</button>
     </form>
   );
 }
  
-export default Login;
+export default Signup;

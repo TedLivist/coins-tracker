@@ -6,6 +6,7 @@ import Coins from './components/Coins';
 import Navbar from './components/Navbar';
 import Homepage from './components/Homepage';
 import Login from './components/auth/Login';
+import Signup from './components/auth/Signup';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route exact path="/" element={<Homepage />} />
           <Route path="coins" element={<Coins />} />
 
+          <Route path="signup" element={<Signup />} />
           <Route path="login" element={<Login />} />
         </Routes>
       </BrowserRouter>
