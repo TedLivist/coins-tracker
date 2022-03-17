@@ -8,6 +8,7 @@ const Login = () => {
   const dispatch = useDispatch() 
  
   const [username, setUsername] = useState('')
+  const [error, setError] = useState([])
 
   const handleUsername = (e) => {
     setUsername(e.target.value)
@@ -24,12 +25,15 @@ const Login = () => {
       return (
         navigate('/')
       )
+    } else {
+      setError(checkStatus)
     }
     
   }
 
   return (
     <form onSubmit={handleSubmit}>
+      {error}
       <input type="text" name='username' value={username} onChange={handleUsername} required />
       <button type='submit'>Log in</button>
     </form>

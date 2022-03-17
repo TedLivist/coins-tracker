@@ -21,6 +21,8 @@ export const loginUser = (username) => async (dispatch)  => {
   if (user.error === undefined) {
     dispatch(authenticateUser(user))
     return 'loggedIn'
+  } else {
+    return user.error
   }
 }
 
