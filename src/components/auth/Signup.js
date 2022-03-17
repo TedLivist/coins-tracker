@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { signupUser } from '../../redux/users/users';
@@ -12,6 +12,16 @@ const Signup = () => {
   const [error, setError] = useState([])
 
   const users = useSelector(state => state.users)
+  useEffect(() => {
+    if (users.user) {
+      const { user: {token, user} } = users
+      localStorage.setItem('loggedInUser', JSON.stringify({token, username: user.username}))
+
+      return (
+        navigate('/')
+      )
+    }
+  })
 
   const handleUsername = (e) => {
     setUsername(e.target.value)
@@ -22,14 +32,7 @@ const Signup = () => {
 
     const checkStatus = await dispatch(signupUser(username))
 
-    if (checkStatus === 'loggedIn') {
-      if (users) {
-        console.log('Users state', users)
-      }
-      return (
-        navigate('/')
-      )
-    } else {
+    if (checkStatus !== 'signedUp') {
       setError(checkStatus)
     }
   }
