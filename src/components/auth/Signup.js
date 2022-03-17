@@ -21,7 +21,7 @@ const Signup = () => {
         navigate('/')
       )
     }
-  })
+  }, [navigate, users])
 
   const handleUsername = (e) => {
     setUsername(e.target.value)

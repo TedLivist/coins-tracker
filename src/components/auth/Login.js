@@ -21,7 +21,7 @@ const Login = () => {
         navigate('/')
       )
     }
-  })
+  }, [navigate, users])
 
   const handleUsername = (e) => {
     setUsername(e.target.value)
