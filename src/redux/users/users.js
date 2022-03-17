@@ -13,6 +13,9 @@ export const signupUser = (username) => async (dispatch)  => {
   const user = await auth('signup', username)
   if (user.error === undefined) {
     dispatch(authenticateUser(user))
+    return 'signedUp'
+  } else {
+    return user.error
   }
 }
 
