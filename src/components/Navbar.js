@@ -1,10 +1,12 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { logoutUser } from '../redux/users/users';
 import '../styles/Navbar.css';
 
 const Navbar = () => {
+
+  const checkUser = useSelector(state => state.users)
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -12,20 +14,27 @@ const Navbar = () => {
   return (
     <nav>
       <NavLink to="/" className="nav-item">Homepage</NavLink>
-      <NavLink to='/coins' className="nav-item">Coins</NavLink>
 
-      <NavLink to='/signup' className="nav-item">Signup</NavLink>
-      <NavLink to="/login" className="nav-item">Login</NavLink>
-      <div
-        className="nav-item"
-        onClick={() => {
-          dispatch(logoutUser())
-          localStorage.removeItem('loggedInUser')
-          navigate('/')
-        }}
-      >
-        Logout
-      </div>
+      {!checkUser.user && (
+        <>
+          <NavLink to='/coins' className="nav-item">Coins</NavLink>
+          <NavLink to='/signup' className="nav-item">Signup</NavLink>
+          <NavLink to="/login" className="nav-item">Login</NavLink>
+        </>
+      )}
+
+      {checkUser.user && (
+        <div
+          className="nav-item"
+          onClick={() => {
+            dispatch(logoutUser())
+            localStorage.removeItem('loggedInUser')
+            navigate('/')
+          }}
+        >
+          Logout
+        </div>
+      )}
 
     </nav>
   );
