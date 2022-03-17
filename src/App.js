@@ -7,8 +7,15 @@ import Navbar from './components/Navbar';
 import Homepage from './components/Homepage';
 import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
+import { useEffect } from 'react';
 
 function App() {
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('loggedInUser'))
+    console.log(user)
+  })
+
   return (
     <Provider store={store}>
       <BrowserRouter>
