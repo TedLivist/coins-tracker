@@ -1,12 +1,17 @@
 import { auth } from "../../helpers/auth";
 
 const AUTHENTICATE_USER = 'coinsTracker/users/AUTHENTICATE_USER';
+const LOGOUT_USER = 'coinsTracker/users/LOGOUT_USER';
 
 const initialState = [];
 
 export const authenticateUser = payload => ({
   type: AUTHENTICATE_USER,
   payload,
+})
+
+export const logoutUser = () => ({
+  type: LOGOUT_USER,
 })
 
 export const signupUser = (username) => async (dispatch)  => {
@@ -35,6 +40,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         user: action.payload
+      }
+    case LOGOUT_USER:
+      return {
+        ...state,
+        user: null
       }
     default:
       return state
