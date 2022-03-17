@@ -14,7 +14,9 @@ const Login = () => {
   const users = useSelector(state => state.users)
   useEffect(() => {
     if (users.user) {
-      console.log(users)
+      const { user: {token, user} } = users
+      localStorage.setItem('loggedInUser', JSON.stringify({token, username: user.username}))
+
       return (
         navigate('/')
       )
