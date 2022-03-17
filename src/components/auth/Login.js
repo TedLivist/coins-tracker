@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../../redux/users/users';
 import {useNavigate} from 'react-router-dom';
 
@@ -11,6 +11,16 @@ const Login = () => {
   const [username, setUsername] = useState('')
   const [error, setError] = useState([])
 
+  const users = useSelector(state => state.users)
+  useEffect(() => {
+    if (users.user) {
+      console.log(users)
+      return (
+        navigate('/')
+      )
+    }
+  })
+
   const handleUsername = (e) => {
     setUsername(e.target.value)
   }
@@ -20,11 +30,7 @@ const Login = () => {
 
     const checkStatus = await dispatch(loginUser(username))
 
-    if (checkStatus === 'loggedIn') {
-      return (
-        navigate('/')
-      )
-    } else {
+    if (checkStatus !== 'loggedIn') {
       setError(checkStatus)
     }
     

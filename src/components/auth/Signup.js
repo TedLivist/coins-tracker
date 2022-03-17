@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { signupUser } from '../../redux/users/users';
 
@@ -11,6 +11,8 @@ const Signup = () => {
   const [username, setUsername] = useState('')
   const [error, setError] = useState([])
 
+  const users = useSelector(state => state.users)
+
   const handleUsername = (e) => {
     setUsername(e.target.value)
   }
@@ -21,6 +23,9 @@ const Signup = () => {
     const checkStatus = await dispatch(signupUser(username))
 
     if (checkStatus === 'loggedIn') {
+      if (users) {
+        console.log('Users state', users)
+      }
       return (
         navigate('/')
       )
