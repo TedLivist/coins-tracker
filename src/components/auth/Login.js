@@ -18,7 +18,7 @@ const Login = () => {
       localStorage.setItem('loggedInUser', JSON.stringify({token, username}))
 
       return (
-        navigate('/')
+        navigate(-1)
       )
     }
   }, [navigate, users])
