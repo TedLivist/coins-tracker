@@ -1,3 +1,5 @@
+import { coinsParallelCall } from "./coinsParallelCall"
+
 export const fetchUserCoins = async (token) => {
   const response = await fetch('http://localhost:3000/api/v1/coins', {
     method: 'GET',
@@ -9,14 +11,17 @@ export const fetchUserCoins = async (token) => {
   })
 
   const data = await response.json()
-  const filteredData = data.map((datum) => (
-    {
-      id: datum.id,
-      coin_id: datum.coin_id,
-      qty: datum.quantity
-    }
-  ))
 
-  console.log(filteredData)
+  if (data.length !== 0) {
+    const filteredData = data.map((datum) => (
+      {
+        backendId: datum.id,
+        coin_id: datum.coin_id,
+        qty: datum.quantity
+      }
+    ))
+  
+    coinsParallelCall(filteredData)
+  }
 
 }

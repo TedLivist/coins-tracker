@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import coinDoesNotExist from '../helpers/coinCheck';
-import getCoin from '../helpers/getCoin';
+import { getCoin } from '../helpers/getCoin';
 import { trackCoin } from '../redux/coins/coins';
 import TrackingButton from './TrackingButton';
 

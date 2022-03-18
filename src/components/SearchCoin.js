@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import getCoin from '../helpers/getCoin';
+import { getCoin } from '../helpers/getCoin';
 
 const SearchCoin = (props) => {
 
