@@ -1,9 +1,15 @@
+const ADD_COINS = 'coinsTracker/coins/ADD_COINS'
 const TRACK_COIN = 'coinsTracker/coins/TRACK_COIN';
 const UNTRACK_COIN = 'coinsTracker/coins/UNTRACK_COIN';
 const CHANGE_QUANTITY = 'coinsTracker/coins/CHANGE_QUANTITY';
 
 
 const initialState = [];
+
+export const addCoins = payload => ({
+  type: ADD_COINS,
+  payload
+})
 
 export const trackCoin = payload => ({
   type: TRACK_COIN,
@@ -22,6 +28,11 @@ export const changeQuantity = payload => ({
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case ADD_COINS:
+      return [
+        ...state,
+        ...action.payload
+      ]
     case TRACK_COIN:
       return [
         action.payload,

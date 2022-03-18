@@ -12,6 +12,6 @@ export const coinsParallelCall = async (backendCoins) => {
   }
 
   const data = await Promise.all(coinsPromises)
-  console.log(data)
+  return data
 
 }

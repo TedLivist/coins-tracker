@@ -21,7 +21,8 @@ export const fetchUserCoins = async (token) => {
       }
     ))
   
-    coinsParallelCall(filteredData)
+    const fetchedCoins = await coinsParallelCall(filteredData)
+    return fetchedCoins
   }
 
 }

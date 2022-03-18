@@ -9,6 +9,7 @@ import Signup from './components/auth/Signup';
 import { useEffect } from 'react';
 import { authenticateUser } from './redux/users/users';
 import { fetchUserCoins } from './helpers/fetchUserCoins';
+import { addCoins } from './redux/coins/coins';
 
 function App() {
 
@@ -21,7 +22,8 @@ function App() {
 
     if (user !== null) {
       const { token } = user
-      await fetchUserCoins(token)
+      const coins = await fetchUserCoins(token)
+      dispatch(addCoins(coins))
     }
 
 
