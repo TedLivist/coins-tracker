@@ -15,9 +15,13 @@ const Navbar = () => {
     <nav>
       <NavLink to="/" className="nav-item">Homepage</NavLink>
 
+      
+      {checkUser.user && (
+        <NavLink to='/coins' className="nav-item">Coins</NavLink>
+      )}
+
       {!checkUser.user && (
         <>
-          <NavLink to='/coins' className="nav-item">Coins</NavLink>
           <NavLink to='/signup' className="nav-item">Signup</NavLink>
           <NavLink to="/login" className="nav-item">Login</NavLink>
         </>

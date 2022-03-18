@@ -8,15 +8,23 @@ import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
 import { useEffect } from 'react';
 import { authenticateUser } from './redux/users/users';
+import { fetchUserCoins } from './helpers/fetchUserCoins';
 
 function App() {
 
   const dispatch = useDispatch()
 
-  useEffect(() => {
+  useEffect(async () => {
     const user = JSON.parse(localStorage.getItem('loggedInUser'))
-  
+
     dispatch(authenticateUser(user))
+
+    if (user !== null) {
+      const { token } = user
+      await fetchUserCoins(token)
+    }
+
+
   })
 
   return (
