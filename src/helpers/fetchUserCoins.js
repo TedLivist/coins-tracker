@@ -1,7 +1,4 @@
 export const fetchUserCoins = async (token) => {
-  console.log('Aboki is inside')
-  console.log(token)
-
   const response = await fetch('http://localhost:3000/api/v1/coins', {
     method: 'GET',
     headers: {
@@ -12,5 +9,14 @@ export const fetchUserCoins = async (token) => {
   })
 
   const data = await response.json()
-  console.log(data)
+  const filteredData = data.map((datum) => (
+    {
+      id: datum.id,
+      coin_id: datum.coin_id,
+      qty: datum.quantity
+    }
+  ))
+
+  console.log(filteredData)
+
 }
