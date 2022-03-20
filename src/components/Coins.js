@@ -14,10 +14,14 @@ const Coins = () => {
     <div>
       <h2>The Coins page</h2>
       <h4>Portfolio worth: ${worth}</h4>
+      {coins.length === 0 && (
+        <h2>No coins yet...</h2>
+      )}
         {coins.map((coin) => (
           <OneCoin
             key={coin.id}
             coinId={coin.id}
+            backendCoinId={coin.backendId}
             lastPrice={coin.market_data.current_price.usd}
             quantity={coin.qty}
           />

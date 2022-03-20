@@ -1,7 +1,8 @@
 nav {
   text-align: right;
+  display: flex;
 }
 
 .nav-item {
-  margin-right: 10rem;
+  margin-right: 7rem;
 }
