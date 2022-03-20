@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../../redux/users/users';
 import {useNavigate} from 'react-router-dom';
+import { addCoins } from '../../redux/coins/coins';
+import {fetchUserCoins} from '../../helpers/fetchUserCoins';
 
 const Login = () => {
 
@@ -12,13 +14,16 @@ const Login = () => {
   const [error, setError] = useState([])
 
   const users = useSelector(state => state.users)
-  useEffect(() => {
+  useEffect(async () => {
     if (users.user) {
       const { user: {token, username} } = users
       localStorage.setItem('loggedInUser', JSON.stringify({token, username}))
 
+      const coins = await fetchUserCoins(token)
+      dispatch(addCoins(coins))
+
       return (
-        navigate(-1)
+        navigate('/')
       )
     }
   }, [navigate, users])
