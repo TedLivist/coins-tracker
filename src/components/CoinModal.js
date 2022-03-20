@@ -30,7 +30,7 @@ const CoinModal = ({ open, coinId, backendCoinId, quantity, userToken, onClose }
       <div>{coinId}</div>
       <div>{quantity}</div>
       <form onSubmit={handleModalSubmit}>
-        <input type="number" onChange={handleModalQty} value={modalQty} />
+        <input type="number" step='any' onChange={handleModalQty} value={modalQty} />
         <button type='submit'>Change Quantity</button>
       </form>
     </div>
