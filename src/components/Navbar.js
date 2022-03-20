@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
+import { clearCoins } from '../redux/coins/coins';
 import { logoutUser } from '../redux/users/users';
 import '../styles/Navbar.css';
 
@@ -32,6 +33,7 @@ const Navbar = () => {
           className="nav-item"
           onClick={() => {
             dispatch(logoutUser())
+            dispatch(clearCoins())
             localStorage.removeItem('loggedInUser')
             navigate('/')
           }}

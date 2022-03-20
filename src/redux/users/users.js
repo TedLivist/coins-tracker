@@ -3,7 +3,9 @@ import { auth } from "../../helpers/auth";
 const AUTHENTICATE_USER = 'coinsTracker/users/AUTHENTICATE_USER';
 const LOGOUT_USER = 'coinsTracker/users/LOGOUT_USER';
 
-const initialState = [];
+const initialState = {
+  user: null
+};
 
 export const authenticateUser = payload => ({
   type: AUTHENTICATE_USER,
@@ -42,10 +44,7 @@ const reducer = (state = initialState, action) => {
         user: action.payload
       }
     case LOGOUT_USER:
-      return {
-        ...state,
-        user: null
-      }
+      return state = initialState
     default:
       return state
   }

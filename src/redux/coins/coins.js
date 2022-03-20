@@ -2,6 +2,7 @@ const ADD_COINS = 'coinsTracker/coins/ADD_COINS'
 const TRACK_COIN = 'coinsTracker/coins/TRACK_COIN';
 const UNTRACK_COIN = 'coinsTracker/coins/UNTRACK_COIN';
 const CHANGE_QUANTITY = 'coinsTracker/coins/CHANGE_QUANTITY';
+const CLEAR_COINS = 'coinsTracker/coins/CLEAR_COINS';
 
 
 const initialState = [];
@@ -26,6 +27,10 @@ export const changeQuantity = payload => ({
   payload,
 })
 
+export const clearCoins = payload => ({
+  type: CLEAR_COINS,
+})
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_COINS:
@@ -47,6 +52,8 @@ const reducer = (state = initialState, action) => {
           }
           return { ...coin, qty: action.payload.qty };
         })
+    case CLEAR_COINS:
+      state = initialState
     default:
       return state
   }

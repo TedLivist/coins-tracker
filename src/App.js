@@ -19,10 +19,8 @@ function App() {
     const authAndFetch = async () => {
       const user = JSON.parse(localStorage.getItem('loggedInUser'))
 
-      dispatch(authenticateUser(user))
-
-
       if (user !== null) {
+        dispatch(authenticateUser(user))
         const { token } = user
         const coins = await fetchUserCoins(token)
         dispatch(addCoins(coins))
