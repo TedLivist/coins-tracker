@@ -15,18 +15,21 @@ function App() {
 
   const dispatch = useDispatch()
 
-  useEffect(async () => {
-    const user = JSON.parse(localStorage.getItem('loggedInUser'))
+  useEffect(() => {
+    const authAndFetch = async () => {
+      const user = JSON.parse(localStorage.getItem('loggedInUser'))
 
-    dispatch(authenticateUser(user))
+      dispatch(authenticateUser(user))
 
-    if (user !== null) {
-      const { token } = user
-      const coins = await fetchUserCoins(token)
-      dispatch(addCoins(coins))
+
+      if (user !== null) {
+        const { token } = user
+        const coins = await fetchUserCoins(token)
+        dispatch(addCoins(coins))
+      }
     }
 
-
+    authAndFetch()
   })
 
   return (
