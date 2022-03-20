@@ -1,6 +1,4 @@
 export const updateBackendQuantity = async (backendCoinId, coinId, quantity, userToken) => {
-  console.log('Hahaha')
-
   const response = await fetch(`http://localhost:3000/api/v1/coins/${backendCoinId}`, {
     method: 'PUT',
     mode: 'cors',

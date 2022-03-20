@@ -1,8 +1,6 @@
 import { getCoin } from "./getCoin"
 
 export const coinsParallelCall = async (backendCoins) => {
-  console.log(backendCoins)
-
   const coinsPromises = []
   for (let i = 0; i < backendCoins.length; i++) {
     const coinId = backendCoins[i].coin_id
