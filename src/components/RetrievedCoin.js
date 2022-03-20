@@ -18,10 +18,10 @@ const RetrievedCoin = (props) => {
     const {id} = data
     const qty = 0
     const {token} = checkUser.user
-    const dataAndQty = {...data, qty};
     const coin = await trackCoinOnBackend(id, qty, token)
     
     if (coin.coin_id) {
+      const dataAndQty = {...data, qty, backendId: coin.id};
       dispatch(trackCoin(dataAndQty))
     }
   }
