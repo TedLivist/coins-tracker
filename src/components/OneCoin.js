@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { untrackCoinOnBackend } from '../helpers/untrackCoinOnBackend';
+import { untrackCoinOnBackend } from '../helpers/backendMods/untrackCoinOnBackend';
 import { untrackCoin } from '../redux/coins/coins';
 import CoinModal from './CoinModal';
 import TrackingButton from './TrackingButton';
@@ -25,7 +25,7 @@ const OneCoin = (props) => {
       <div>
         <button onClick={() => setIsOpen(true)}>Open Modal</button>
 
-        <CoinModal open={isOpen} coinId={coinId} quantity={quantity} onClose={() => setIsOpen(false)} />
+        <CoinModal open={isOpen} coinId={coinId} backendCoinId={backendCoinId} quantity={quantity} userToken={token} onClose={() => setIsOpen(false)} />
       </div>      
     </div>
   );
