@@ -14,19 +14,24 @@ const Login = () => {
   const [error, setError] = useState([])
 
   const users = useSelector(state => state.users)
-  useEffect(async () => {
-    if (users.user) {
-      const { user: {token, username} } = users
-      localStorage.setItem('loggedInUser', JSON.stringify({token, username}))
 
-      const coins = await fetchUserCoins(token)
-      dispatch(addCoins(coins))
+  useEffect(() => {
+    const checkAuth = async () => {
+      if (users.user) {
+        const { user: {token, username} } = users
+        localStorage.setItem('loggedInUser', JSON.stringify({token, username}))
 
-      return (
-        navigate('/')
-      )
+        const coins = await fetchUserCoins(token)
+        dispatch(addCoins(coins))
+
+        return (
+          navigate('/')
+        )
+      }
     }
-  }, [navigate, users])
+
+    checkAuth()
+  }, [navigate, users, dispatch])
 
   const handleUsername = (e) => {
     setUsername(e.target.value)
