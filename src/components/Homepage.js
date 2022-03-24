@@ -10,6 +10,8 @@ const Homepage = () => {
   useEffect(() => {
     if (searchCoin === '' && coins.length > 0) {
       setSearchedCoin(coins[0].id)
+    } else {
+      setSearchedCoin('bitcoin')
     }
   }, [coins, searchCoin])
 
