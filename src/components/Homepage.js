@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import Chart from './Chart';
+import ChartDisplay from './Chart';
 import RetrievedCoin from './RetrievedCoin';
 import SearchCoin from './SearchCoin';
 
@@ -25,7 +25,7 @@ const Homepage = () => {
       <SearchCoin trackedCoins={coins} parentCallback={callback} />
       <h3>{searchCoin}</h3>
       <RetrievedCoin retrievedCoin={searchCoin} />
-      <Chart chartCoin={searchCoin} />
+      <ChartDisplay chartCoin={searchCoin} />
     </div>
   );
 }
