@@ -10,13 +10,14 @@ const ChartDisplay = (props) => {
   const {chartCoin} = props
   const [chartData, setChartData] = useState([])
 
-  const [chartLabels, setChartLabels] = useState(['75min', '70min', '65min', '60min', '55min', '50min', '45min', '40min', '35min', '30min', '25min', '20min', '15min', '10min', '5min'])
+  const [chartLabels, setChartLabels] = useState([])
 
   useEffect(() => {
     if (chartCoin) {
       const fetchChart = async () => {
-        const data = await getCoinChart(chartCoin, 'usd', 1)
-        setChartData(data)
+        const {timeStamps, prices} = await getCoinChart(chartCoin, 'usd', 1)
+        setChartLabels(timeStamps)
+        setChartData(prices)
       }
       fetchChart()
     }
@@ -25,10 +26,9 @@ const ChartDisplay = (props) => {
   const handleMonth = async (e) => {
     e.preventDefault()
 
-    const days = await getCoinChart(chartCoin, 'usd', 30)
-    const thirtyDayLabels = ['15hr', '14hr', '13hr', '12hr', '11hr', '10hr', '9hr', '8hr', '7hr', '6hr', '5hr', '4hr', '3hr', '2hr', '1hr']
-    setChartLabels(thirtyDayLabels)
-    setChartData(days)
+    const {timeStamps, prices} = await getCoinChart(chartCoin, 'usd', 30)
+    setChartLabels(timeStamps)
+    setChartData(prices)
   }
 
   return (
@@ -48,8 +48,8 @@ const ChartDisplay = (props) => {
                 backgroundColor: [
                   'red',
                   'purple',
-                  'violet',
                 ],
+                height: 40,
                 borderColor: 'yellow'
               }
             ]
@@ -73,7 +73,7 @@ const ChartDisplay = (props) => {
                   font: {
                     size: 14,
                   },
-                  stepSize: 1,
+                  stepSize: 5,
                   beginAtZero: true,
                 },
               },
