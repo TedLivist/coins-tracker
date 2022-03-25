@@ -12,7 +12,7 @@ const Homepage = () => {
     if (searchCoin === '' && coins.length > 0) {
       setSearchedCoin(coins[0].id)
     } else {
-      setSearchedCoin('bitcoin')
+      setSearchedCoin('fear')
     }
   }, [coins, searchCoin])
 

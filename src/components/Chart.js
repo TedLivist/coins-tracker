@@ -10,6 +10,8 @@ const ChartDisplay = (props) => {
   const {chartCoin} = props
   const [chartData, setChartData] = useState([])
 
+  const [chartLabels, setChartLabels] = useState(['75min', '70min', '65min', '60min', '55min', '50min', '45min', '40min', '35min', '30min', '25min', '20min', '15min', '10min', '5min'])
+
   useEffect(() => {
     if (chartCoin) {
       const fetchChart = async () => {
@@ -18,67 +20,78 @@ const ChartDisplay = (props) => {
       }
       fetchChart()
     }
-  })
+  }, [chartCoin])
+
+  const handleMonth = async (e) => {
+    e.preventDefault()
+
+    const days = await getCoinChart(chartCoin, 'usd', 30)
+    const thirtyDayLabels = ['15hr', '14hr', '13hr', '12hr', '11hr', '10hr', '9hr', '8hr', '7hr', '6hr', '5hr', '4hr', '3hr', '2hr', '1hr']
+    setChartLabels(thirtyDayLabels)
+    setChartData(days)
+  }
 
   return (
-    <div>
-      <Line
-        datasetIdKey='id'
-        data={{
-          labels: ['Jun', 'Jul', 'Aug'],
-          datasets: [
-            {
-              id: 1,
-              label: 'Haha',
-              data: [5, 6.3, 7],
-              fill: false,
-              backgroundColor: [
-                'red',
-                'purple',
-                'violet',
-              ],
-              borderColor: 'yellow'
-            }
-          ]
-        }}
-        height={400}
-        options={{
-          maintainAspectRatio: false,
-          plugins: {
-            legend: {
-              labels: {
-                color: 'blue',
-                font: {
-                  size: 14,
+    <>
+      <button onClick={handleMonth}>Month</button>
+      <div>
+        <Line
+          datasetIdKey='id'
+          data={{
+            labels: chartLabels,
+            datasets: [
+              {
+                id: 1,
+                label: 'Haha',
+                data: chartData,
+                fill: false,
+                backgroundColor: [
+                  'red',
+                  'purple',
+                  'violet',
+                ],
+                borderColor: 'yellow'
+              }
+            ]
+          }}
+          options={{
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                labels: {
+                  color: 'blue',
+                  font: {
+                    size: 14,
+                  },
                 },
               },
             },
-          },
-          scales: {
-            y: {
-              ticks: {
-                color: 'blue',
-                font: {
-                  size: 14,
+            scales: {
+              y: {
+                ticks: {
+                  color: 'blue',
+                  font: {
+                    size: 14,
+                  },
+                  stepSize: 1,
+                  beginAtZero: true,
                 },
-                stepSize: 1,
-                beginAtZero: true,
+              },
+              x: {
+                ticks: {
+                  color: 'blue',
+                  font: {
+                    size: 14,
+                  },
+                  stepSize: 1,
+                  beginAtZero: true,
+                },
               },
             },
-            x: {
-              ticks: {
-                color: 'blue',
-                font: {
-                  size: 14,
-                },
-                stepSize: 1,
-                beginAtZero: true,
-              },
-            },
-          },
-        }}
-      />
-    </div>
+          }}
+        />
+      </div>
+    </>
   );
 }
  
