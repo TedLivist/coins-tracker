@@ -3,7 +3,7 @@ import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Coins from './components/Coins';
 import Navbar from './components/Navbar';
-import Homepage from './components/Homepage';
+import Homepage from './components/Home/Homepage';
 import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
 import { useEffect } from 'react';

@@ -1,3 +1,28 @@
-body {
+/* body {
   background-color: pink;
+} */
+
+body {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.coin-logo {
+  background-color: red;
+  width: 90%;
+  margin: auto;
+  border-radius: 1rem;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.coin-logo img {
+  height: 7rem;
+  width: 7rem;
+}
+
+.coin-logo h2 {
+  margin-bottom: 0;
 }
