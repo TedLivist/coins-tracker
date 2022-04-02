@@ -9,8 +9,9 @@ const MarketDataItem = (props) => {
   }
 
   return (
-    <div>
-      {item} | {value}
+    <div className='market-item'>
+      <div>{item}</div>
+      <div>{value}</div>
     </div>
   );
 }
