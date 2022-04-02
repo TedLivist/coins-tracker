@@ -17,6 +17,8 @@ body {
 .market-item {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  padding: 1rem 0;
+  font-weight: bold;
 }
 
 .market-item div:nth-child(2) {

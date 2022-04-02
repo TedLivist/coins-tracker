@@ -15,7 +15,7 @@ const Homepage = () => {
     if (searchCoin === '' && coins.length > 0) {
       setSearchedCoin(coins[0].id)
     } else {
-      const coin = await getCoin('openocean')
+      const coin = await getCoin('bitcoin')
       setCoinProps(coin)
       console.log(coin)
       setSearchedCoin(coin.id)
@@ -39,7 +39,7 @@ const Homepage = () => {
             // marketData={{item: "Market Cap", value: coinProps.market_data}}
             marketCap={{ item: "Market Cap", value: coinProps.market_data.market_cap.usd }}
             circulatingSupply={{ item: "Circulating Supply", value: coinProps.market_data.circulating_supply }}
-            priceChange={{ item: "Price Change (24h)", value: coinProps.market_data.price_change_percentage_24h }}
+            priceChange={{ item: "Price Change % (24h)", value: coinProps.market_data.price_change_percentage_24h }}
             totalVolume={{ item: "Volume", value: coinProps.market_data.total_volume.usd }}
             allTimeHigh={{ item: "All-Time High", value: coinProps.market_data.ath.usd }}
             allTimeLow={{ item: "All-Time Low", value: coinProps.market_data.atl.usd }}
