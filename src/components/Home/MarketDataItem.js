@@ -8,10 +8,18 @@ const MarketDataItem = (props) => {
     value = value.toLocaleString('en-US')
   }
 
+  let color = ''
+
+  if (item === 'Price Change % (24h)' && value > 0) {
+    color = 'green-font'
+  } else if (item === 'Price Change % (24h)' && value < 0) {
+    color = 'red-font'
+  }
+
   return (
     <div className='market-item'>
       <div>{item}</div>
-      <div>{value}</div>
+      <div className={color}>{value}</div>
     </div>
   );
 }

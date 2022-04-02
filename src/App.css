@@ -14,6 +14,14 @@ body {
   margin: auto;
 }
 
+.red-font {
+  color: red;
+}
+
+.green-font {
+  color: green;
+}
+
 .market-item {
   display: grid;
   grid-template-columns: 1fr 1fr;

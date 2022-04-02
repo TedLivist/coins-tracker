@@ -15,7 +15,7 @@ const Homepage = () => {
     if (searchCoin === '' && coins.length > 0) {
       setSearchedCoin(coins[0].id)
     } else {
-      const coin = await getCoin('bitcoin')
+      const coin = await getCoin('fear')
       setCoinProps(coin)
       console.log(coin)
       setSearchedCoin(coin.id)
