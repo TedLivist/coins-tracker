@@ -9,10 +9,13 @@ body {
   min-height: 100vh;
 }
 
-.coin-logo {
-  background-color: red;
+.side-margin {
   width: 90%;
   margin: auto;
+}
+
+.coin-logo {
+  background-color: red;
   border-radius: 1rem;
   text-align: center;
   padding: 2rem 0;
