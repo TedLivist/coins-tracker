@@ -2,8 +2,11 @@
   background-color: pink;
 } */
 
-body {
+* {
   box-sizing: border-box;
+}
+
+body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -12,6 +15,13 @@ body {
 .side-margin {
   width: 90%;
   margin: auto;
+}
+
+.market-data-collection {
+  margin-top: 1rem;
+  background-color: yellow;
+  border-radius: 1rem;
+  padding: 0 1rem;
 }
 
 .red-font {
