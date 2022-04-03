@@ -58,3 +58,24 @@ body {
 .coin-logo h2 {
   margin-bottom: 0;
 }
+
+.converter-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.converter-wrapper input:first-child {
+  width: 90%;
+}
+
+.currency-input {
+  display: flex;
+}
+
+.currency-input input {
+  width: 70%;
+}
+
+.currency-input select {
+  width: 30%;
+}
