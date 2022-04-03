@@ -6,14 +6,20 @@ const CoinConverter = (props) => {
   const {coinPrice, otherCurrencies} = props
   const [selectState, setSelectState] = useState([])
 
-  const selectObj = []
-
   useEffect(() => {
     setSelectState(coinSelect(otherCurrencies))
   }, [])
 
   return (
-    <div>Haha</div>
+    <div>
+      <input type='number' />
+
+      <select>
+        {selectState.map(({item, itemValue}) => (
+          <option key={item} value={itemValue}>{item.toUpperCase()}</option>        
+        ))}
+      </select>
+    </div>
   );
 }
  
