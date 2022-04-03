@@ -3,7 +3,7 @@ import { coinSelect } from '../../helpers/coinSelect'
 
 const CoinConverter = (props) => {
 
-  const {coinPrice, otherCurrencies} = props
+  const {otherCurrencies} = props
   const [selectState, setSelectState] = useState([])
 
   const [coinValue, setCoinValue] = useState(0)
@@ -32,9 +32,15 @@ const CoinConverter = (props) => {
     setCoinValue(currToCoin.toFixed(4))
   }
 
+  const selectCheck = (select) => {
+    if (select === '') {
+      return true
+    }
+  }
+
   return (
     <div className='converter-wrapper'>
-      <input type='number' onChange={handleCoinChange} value={coinValue} />
+      <input type='number' onChange={handleCoinChange} value={coinValue} disabled={selectCheck(selectValue)} />
 
       <div className='currency-input'>
         <select onChange={handleSelectChange}>
@@ -43,7 +49,7 @@ const CoinConverter = (props) => {
             <option key={item} value={itemValue}>{item.toUpperCase()}</option>        
           ))}
         </select>
-        <input type='number' onChange={handleCurrencyChange} value={currencyValue} />
+        <input type='number' onChange={handleCurrencyChange} value={currencyValue} disabled={selectCheck(selectValue)} />
       </div>
     </div>
   );

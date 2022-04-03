@@ -45,7 +45,7 @@ const Homepage = () => {
             allTimeHigh={{ item: "All-Time High", value: coinProps.market_data.ath.usd }}
             allTimeLow={{ item: "All-Time Low", value: coinProps.market_data.atl.usd }}
           /> */}
-          <CoinConverter coinPrice={coinProps.market_data.current_price.usd} otherCurrencies={coinProps.market_data.current_price} />
+          <CoinConverter otherCurrencies={coinProps.market_data.current_price} />
         </div>
       }
     </div>
