@@ -74,8 +74,11 @@ body {
 
 .currency-input input {
   width: 70%;
+  border: 1px solid black;
+  border-left: 0;
 }
 
 .currency-input select {
   width: 30%;
+  border-right: 0;
 }
