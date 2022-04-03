@@ -16,16 +16,20 @@ const CoinConverter = (props) => {
 
   const handleCoinChange = (e) => {
     setCoinValue(e.target.value)
-    const calc = e.target.value * selectValue
-    setCurrencyValue(calc.toFixed(4))
+    const coinToCurr = e.target.value * selectValue
+    setCurrencyValue(coinToCurr.toFixed(4))
   }
 
   const handleSelectChange = (e) => {
     setSelectValue(e.target.value)
+    setCoinValue(0)
+    setCurrencyValue(0)
   }
 
   const handleCurrencyChange = (e) => {
-    console.log(e.target.value)
+    setCurrencyValue(e.target.value)
+    const currToCoin = e.target.value / selectValue
+    setCoinValue(currToCoin.toFixed(4))
   }
 
   return (
