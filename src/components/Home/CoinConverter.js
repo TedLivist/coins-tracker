@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { coinSelect } from '../../helpers/coinSelect'
 
 const CoinConverter = (props) => {
 
@@ -8,17 +9,8 @@ const CoinConverter = (props) => {
   const selectObj = []
 
   useEffect(() => {
-    for (const item in otherCurrencies) {
-      if (item === "usd" || item === "eur") {
-        let itemValue = otherCurrencies[item]
-        let items = {item, itemValue}
-        selectObj.push(items)
-      }
-    }
-    setSelectState(selectObj)
+    setSelectState(coinSelect(otherCurrencies))
   }, [])
-
-  console.log(selectState)
 
   return (
     <div>Haha</div>
