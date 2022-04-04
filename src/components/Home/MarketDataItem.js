@@ -11,9 +11,9 @@ const MarketDataItem = (props) => {
   let color = ''
 
   if (item === 'Price Change % (24h)' && value > 0) {
-    color = 'green-font'
+    color = 'text-green-700'
   } else if (item === 'Price Change % (24h)' && value < 0) {
-    color = 'red-font'
+    color = 'text-red-500'
   }
 
   return (
