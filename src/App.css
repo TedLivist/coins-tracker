@@ -32,17 +32,6 @@ body {
   color: green;
 }
 
-.market-item {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding: 1rem 0;
-  font-weight: bold;
-}
-
-.market-item div:nth-child(2) {
-  text-align: right;
-}
-
 .coin-logo {
   background-color: red;
   border-radius: 1rem;

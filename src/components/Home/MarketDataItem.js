@@ -17,9 +17,9 @@ const MarketDataItem = (props) => {
   }
 
   return (
-    <div className='market-item'>
+    <div className='grid grid-cols-2 py-4 px-0 font-bold'>
       <div>{item}</div>
-      <div className={color}>{value}</div>
+      <div className={`${color} text-right`}>{value}</div>
     </div>
   );
 }
