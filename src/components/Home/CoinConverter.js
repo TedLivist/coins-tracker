@@ -39,17 +39,17 @@ const CoinConverter = (props) => {
   }
 
   return (
-    <div className='converter-wrapper'>
-      <input type='number' onChange={handleCoinChange} value={coinValue} disabled={selectCheck(selectValue)} />
+    <div className='grid grid-cols-2'>
+      <input type='number' className="w-10/12" onChange={handleCoinChange} value={coinValue} disabled={selectCheck(selectValue)} />
 
-      <div className='currency-input'>
-        <select onChange={handleSelectChange}>
-          <option>---Select Currency---</option>
+      <div className="flex justify-end">
+        <select onChange={handleSelectChange} className="w-3/12">
+          <option value="">---Select Currency---</option>
           {selectState.map(({item, itemValue}) => (
             <option key={item} value={itemValue}>{item.toUpperCase()}</option>        
           ))}
         </select>
-        <input type='number' onChange={handleCurrencyChange} value={currencyValue} disabled={selectCheck(selectValue)} />
+        <input type='number' className="w-7/12" onChange={handleCurrencyChange} value={currencyValue} disabled={selectCheck(selectValue)} />
       </div>
     </div>
   );
