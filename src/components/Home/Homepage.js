@@ -6,6 +6,7 @@ import SearchCoin from '../SearchCoin';
 import { getCoin } from '../../helpers/getCoin';
 import MarketData from './MarketData';
 import CoinConverter from './CoinConverter';
+import HomeLinks from './HomeLinks';
 
 const Homepage = () => {
   const [searchCoin, setSearchedCoin] = useState('')
@@ -16,7 +17,7 @@ const Homepage = () => {
     if (searchCoin === '' && coins.length > 0) {
       setSearchedCoin(coins[0].id)
     } else {
-      const coin = await getCoin('fear')
+      const coin = await getCoin('wakanda-inu')
       setCoinProps(coin)
       console.log(coin)
       setSearchedCoin(coin.id)
@@ -36,15 +37,22 @@ const Homepage = () => {
       {coinProps.length !== 0 &&
         <div className='side-margin'>
           {/* <CoinLogo coinName={coinProps.name} coinLogo={coinProps.image.large} /> */}
-          <MarketData
+          {/* <MarketData
             marketCap={{ item: "Market Cap", value: coinProps.market_data.market_cap.usd }}
             circulatingSupply={{ item: "Circulating Supply", value: coinProps.market_data.circulating_supply }}
             priceChange={{ item: "Price Change % (24h)", value: coinProps.market_data.price_change_percentage_24h }}
             totalVolume={{ item: "Volume", value: coinProps.market_data.total_volume.usd }}
             allTimeHigh={{ item: "All-Time High", value: coinProps.market_data.ath.usd }}
             allTimeLow={{ item: "All-Time Low", value: coinProps.market_data.atl.usd }}
-          />
+          /> */}
           {/* <CoinConverter otherCurrencies={coinProps.market_data.current_price} /> */}
+          <HomeLinks
+            homepage={coinProps.links.homepage[0]}
+            blockchainSites={coinProps.links.blockchain_site}
+            chatUrls={coinProps.links.chat_url}
+            twitterhandle={coinProps.links.twitter_screen_name}
+            telegramhandle={coinProps.links.telegram_channel_identifier}
+          />
         </div>
       }
     </div>
