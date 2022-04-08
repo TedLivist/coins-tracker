@@ -10,7 +10,6 @@ const HomeLinks = (props) => {
 
   useEffect(() => {
     setFormattedUrls(blockchainExtract(blockchainSites))
-    console.log(chatUrls)
   }, [])
 
   return (
@@ -24,7 +23,7 @@ const HomeLinks = (props) => {
       ))}
       {chatUrls[0] !== '' && (
         <div>
-          <h2>Chat Links</h2>
+          <h2 className='text-lg font-bold'>Chat Links</h2>
           {chatUrls.map((chatUrl) => {
             if (chatUrl !== '') {
               return <LinkItem title='Chat' key={chatUrl} link={chatUrl} />
@@ -33,16 +32,16 @@ const HomeLinks = (props) => {
         </div>
       )}
       {(twitterhandle !== '' || telegramhandle !== '') && (
-        <h2>Socials</h2>
+        <h2 className='font-bold text-lg'>Socials</h2>
       )} 
       {twitterhandle !== '' && (
         <div>
-          <LinkItem title="Twitter" link={twitterhandle} />
+          <LinkItem title="Twitter" link={twitterhandle} mainLink={`twitter.com/${twitterhandle}`} />
         </div>
       )}
       {telegramhandle !== '' && (
         <div>
-          <LinkItem title="Telegram" link={telegramhandle} />
+          <LinkItem title="Telegram" link={telegramhandle} mainLink={`t.me/${telegramhandle}`} />
         </div>
       )}
     </div>
