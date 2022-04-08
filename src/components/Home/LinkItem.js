@@ -2,7 +2,7 @@ import React from 'react';
 
 const LinkItem = (props) => {
 
-  const {title, link} = props
+  const {title, link, mainLink} = props
 
   return (
     <div className='grid grid-cols-2'>
