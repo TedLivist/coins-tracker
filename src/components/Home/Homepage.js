@@ -19,7 +19,7 @@ const Homepage = () => {
     } else {
       const coin = await getCoin('wakanda-inu')
       setCoinProps(coin)
-      console.log(coin)
+      // console.log(coin)
       setSearchedCoin(coin.id)
     }
   }, [coins, searchCoin])
@@ -47,7 +47,7 @@ const Homepage = () => {
           /> */}
           {/* <CoinConverter otherCurrencies={coinProps.market_data.current_price} /> */}
           <HomeLinks
-            homepage={coinProps.links.homepage[0]}
+            website={coinProps.links.homepage[0]}
             blockchainSites={coinProps.links.blockchain_site}
             chatUrls={coinProps.links.chat_url}
             twitterhandle={coinProps.links.twitter_screen_name}

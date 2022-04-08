@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { blockchainExtract } from '../../helpers/blockchainExtract';
+import LinkItem from './LinkItem';
 
 const HomeLinks = (props) => {
 
-  const { homepage, blockchainSites, chatUrls } = props
+  const { website, blockchainSites, chatUrls, telegramhandle, twitterhandle } = props
 
   const [formattedUrls, setFormattedUrls] = useState([])
 
@@ -12,7 +13,9 @@ const HomeLinks = (props) => {
   }, [])
 
   return (
-    <div>Haha</div>
+    <div>
+      <LinkItem title='Website' link={website} />
+    </div>
   );
 }
  
