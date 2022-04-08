@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { Tooltip } from '@material-ui/core';
+import { Fade } from '@material-ui/core';
+import React, { useState } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
 
 const LinkItem = (props) => {
@@ -10,12 +12,6 @@ const LinkItem = (props) => {
     setCopied(true)
   }
 
-  useEffect(() => {
-    setTimeout(() => {
-      if (copied) setCopied(false)
-    }, 2000)
-  })
-
   return (
     <div className='grid grid-cols-2'>
       <div>{title}</div>
@@ -23,8 +19,13 @@ const LinkItem = (props) => {
       <div className='text-right'>
         <CopyToClipboard text={mainLink === undefined ? link : mainLink} onCopy={handleCopy}>
           <div>
-            <span className='hover:bg-slate-400 hover:rounded-lg hover:p-1 hover:cursor-pointer'>{link}</span>
-            <div>{copied && <small className='text-sky-600'>Copied</small>}</div>
+            <Tooltip
+              TransitionComponent={Fade}
+              TransitionProps={{timeout: 600}}
+              title={copied ? 'Copied' : 'Copy'}
+            >
+              <span className='hover:bg-slate-400 hover:rounded-lg hover:p-1 hover:cursor-pointer'>{link}</span>
+            </Tooltip>
           </div>
         </CopyToClipboard>
       </div>
