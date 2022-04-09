@@ -1,7 +1,7 @@
 import { Tooltip } from '@material-ui/core';
 import { Fade } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
 
 const useStyles = makeStyles(theme => ({
@@ -23,6 +23,12 @@ const LinkItem = (props) => {
   const handleCopy = () => {
     setCopied(true)
   }
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (copied) setCopied(false)
+    }, 5000)
+  })
 
   return (
     <div className='grid grid-cols-2'>
