@@ -1,10 +1,10 @@
 import React from 'react';
 
 const OneMarket = (props) => {
-  const {base, target} = props
+  const {name, base, target, volume, price, trade_link} = props
   return (
     <div>
-      {base} | {target}
+      {name} | {base} | {target} | {price} | {`$${volume}`}
     </div>
   );
 }

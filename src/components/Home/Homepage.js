@@ -54,7 +54,7 @@ const Homepage = () => {
             twitterhandle={coinProps.links.twitter_screen_name}
             telegramhandle={coinProps.links.telegram_channel_identifier}
           /> */}
-          <Markets markets={coinProps.tickers.slice(0, 4)} />
+          <Markets markets={coinProps.tickers.slice(0, 5)} />
         </div>
       }
     </div>
