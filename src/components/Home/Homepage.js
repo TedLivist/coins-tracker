@@ -7,6 +7,7 @@ import { getCoin } from '../../helpers/getCoin';
 import MarketData from './MarketData';
 import CoinConverter from './CoinConverter';
 import HomeLinks from './HomeLinks';
+import Markets from './Markets';
 
 const Homepage = () => {
   const [searchCoin, setSearchedCoin] = useState('')
@@ -17,7 +18,7 @@ const Homepage = () => {
     if (searchCoin === '' && coins.length > 0) {
       setSearchedCoin(coins[0].id)
     } else {
-      const coin = await getCoin('openocean')
+      const coin = await getCoin('fear')
       setCoinProps(coin)
       console.log(coin)
       setSearchedCoin(coin.id)
@@ -46,13 +47,14 @@ const Homepage = () => {
             allTimeLow={{ item: "All-Time Low", value: coinProps.market_data.atl.usd }}
           /> */}
           {/* <CoinConverter otherCurrencies={coinProps.market_data.current_price} /> */}
-          <HomeLinks
+          {/* <HomeLinks
             website={coinProps.links.homepage[0]}
             blockchainSites={coinProps.links.blockchain_site}
             chatUrls={coinProps.links.chat_url}
             twitterhandle={coinProps.links.twitter_screen_name}
             telegramhandle={coinProps.links.telegram_channel_identifier}
-          />
+          /> */}
+          <Markets markets={coinProps.tickers.slice(0, 4)} />
         </div>
       }
     </div>
