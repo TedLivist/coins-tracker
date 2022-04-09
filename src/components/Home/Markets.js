@@ -9,7 +9,7 @@ const Markets = (props) => {
 
   return (
     <div>
-      <table className='table-auto border-collapse'>
+      <table className='table'>
         <thead>
           <tr>
             <th>Name</th>

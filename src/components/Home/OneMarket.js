@@ -5,9 +5,9 @@ const OneMarket = (props) => {
   return (
     <>
       <th className='text-left'>{name}</th>
-      <td className='text-right'>{base}/{target}</td>
-      <td className='text-right'>{price}</td>
-      <td className='text-right'>{`$${volume}`}</td>
+      <td>{base}/{target}</td>
+      <td>{price}</td>
+      <td>{`$${volume}`}</td>
     </>
   );
 }
