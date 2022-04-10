@@ -5,7 +5,11 @@ const OneMarket = (props) => {
   return (
     <>
       <th className='text-left'>{name}</th>
-      <td>{base}/{target}</td>
+      <td>
+        <a href={trade_link} target='_blank' className='hover:no-underline hover:text-blue-600 p-1.5 tracking-wider font-semibold text-yellow-700 bg-yellow-500 rounded-lg'>
+          {base}/{target}
+        </a>
+      </td>
       <td>{price}</td>
       <td>{`$${volume}`}</td>
     </>
