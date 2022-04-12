@@ -8,9 +8,9 @@ const Markets = (props) => {
   console.log(markets)
 
   return (
-    <div>
-      <table className='table'>
-        <thead>
+    <div className='overflow-auto rounded-lg shadow'>
+      <table className='table w-100'>
+        <thead className='bg-slate-300'>
           <tr>
             <th>Name</th>
             <th>Pair</th>

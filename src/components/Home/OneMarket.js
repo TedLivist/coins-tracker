@@ -6,7 +6,7 @@ const OneMarket = (props) => {
     <>
       <th className='text-left'>{name}</th>
       <td>
-        <a href={trade_link} target='_blank' className='hover:no-underline hover:text-red-600'>
+        <a href={trade_link} target='_blank' rel="noreferrer" className='hover:no-underline hover:text-red-600'>
           {base}/{target}
         </a>
       </td>
