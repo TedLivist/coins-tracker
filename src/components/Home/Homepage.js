@@ -21,7 +21,7 @@ const Homepage = () => {
     } else {
       const coin = await getCoin('fear')
       setCoinProps(coin)
-      console.log(coin)
+      // console.log(coin)
       setSearchedCoin(coin.id)
     }
   }, [coins, searchCoin])

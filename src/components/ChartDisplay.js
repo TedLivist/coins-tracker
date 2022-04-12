@@ -58,6 +58,7 @@ const ChartDisplay = (props) => {
               }
             ]
           }}
+          height='250'
           options={{
             maintainAspectRatio: false,
             plugins: {
@@ -77,7 +78,7 @@ const ChartDisplay = (props) => {
                   font: {
                     size: 14,
                   },
-                  stepSize: 5,
+                  stepSize: 2,
                   beginAtZero: true,
                 },
               },
