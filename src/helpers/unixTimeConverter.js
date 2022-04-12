@@ -1,6 +1,9 @@
 export const unixTimeConverter = (unixTimestamp) => {
   let date = new Date(unixTimestamp)
   let hours = date.getHours()
+  if (hours.toString().length === 1) {
+    hours = '0' + date.getHours()
+  }
   let minutes = date.getMinutes()
   if (minutes.toString().length === 1) {
     minutes = '0' + date.getMinutes()

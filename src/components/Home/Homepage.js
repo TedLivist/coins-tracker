@@ -8,6 +8,7 @@ import MarketData from './MarketData';
 import CoinConverter from './CoinConverter';
 import HomeLinks from './HomeLinks';
 import Markets from './Markets';
+import ChartDisplay from '../ChartDisplay';
 
 const Homepage = () => {
   const [searchCoin, setSearchedCoin] = useState('')
@@ -34,9 +35,9 @@ const Homepage = () => {
       <SearchCoin trackedCoins={coins} parentCallback={callback} />
       <h3>{searchCoin}</h3>
       <RetrievedCoin retrievedCoin={searchCoin} />
-      {/* <ChartDisplay chartCoin={searchCoin} /> */}
       {coinProps.length !== 0 &&
         <div className='side-margin'>
+          <ChartDisplay chartCoin={searchCoin} />
           {/* <CoinLogo coinName={coinProps.name} coinLogo={coinProps.image.large} /> */}
           {/* <MarketData
             marketCap={{ item: "Market Cap", value: coinProps.market_data.market_cap.usd }}
@@ -54,7 +55,7 @@ const Homepage = () => {
             twitterhandle={coinProps.links.twitter_screen_name}
             telegramhandle={coinProps.links.telegram_channel_identifier}
           /> */}
-          <Markets markets={coinProps.tickers.slice(0, 5)} />
+          {/* <Markets markets={coinProps.tickers.slice(0, 5)} /> */}
         </div>
       }
     </div>

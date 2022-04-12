@@ -11,6 +11,7 @@ const ChartDisplay = (props) => {
   const [chartData, setChartData] = useState([])
 
   const [chartLabels, setChartLabels] = useState([])
+  const [subject, setSubject] = useState('Daily')
 
   useEffect(() => {
     if (chartCoin) {
@@ -29,12 +30,13 @@ const ChartDisplay = (props) => {
     const {timeStamps, prices} = await getCoinChart(chartCoin, 'usd', 30)
     setChartLabels(timeStamps)
     setChartData(prices)
+    setSubject('Monthly')
   }
 
   return (
     <>
       <button onClick={handleMonth}>Month</button>
-      <div>
+      <div className='overflow-auto'>
         <Line
           datasetIdKey='id'
           data={{
@@ -42,15 +44,17 @@ const ChartDisplay = (props) => {
             datasets: [
               {
                 id: 1,
-                label: 'Haha',
+                label: subject,
                 data: chartData,
-                fill: false,
+                fill: true,
+                height: 100,
+                borderColor: 'yellow',
+                borderWidth: '1',
                 backgroundColor: [
-                  'red',
-                  'purple',
+                  'blue',
+                  'teal'
                 ],
-                height: 40,
-                borderColor: 'yellow'
+                hoverBackgroundColor: 'red'
               }
             ]
           }}
