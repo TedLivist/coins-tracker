@@ -28,6 +28,8 @@ export const unixTimeConverter = (unixTimestamp, days) => {
 
   if (days == 1) {
     formatDate = day + ' ' + hours + ':' + minutes
+  } else if (days == 30) {
+    formatDate = day + ' ' + dayNum + ' ' + `'${year.toString().slice(-2)}`
   }
 
   return formatDate

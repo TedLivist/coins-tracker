@@ -11,7 +11,7 @@ const ChartDisplay = (props) => {
   const [chartData, setChartData] = useState([])
 
   const [chartLabels, setChartLabels] = useState([])
-  const [subject, setSubject] = useState('Daily')
+  const [subject, setSubject] = useState('24 hrs')
 
   useEffect(() => {
     if (chartCoin) {
@@ -30,12 +30,12 @@ const ChartDisplay = (props) => {
     const {timeStamps, prices} = await getCoinChart(chartCoin, 'usd', 30)
     setChartLabels(timeStamps)
     setChartData(prices)
-    setSubject('Monthly')
+    setSubject('Last Month')
   }
 
   return (
     <>
-      <button onClick={handleMonth}>Month</button>
+      <button onClick={handleMonth}>Last Month</button>
       <div className='overflow-auto'>
         <Line
           datasetIdKey='id'
