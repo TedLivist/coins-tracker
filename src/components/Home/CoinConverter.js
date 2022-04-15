@@ -39,17 +39,17 @@ const CoinConverter = (props) => {
   }
 
   return (
-    <div className='grid grid-cols-2'>
-      <input type='number' className="w-10/12" onChange={handleCoinChange} value={coinValue} disabled={selectCheck(selectValue)} />
+    <div className='grid grid-cols-2 gap-4'>
+      <input type='number' className="w-10/12 ml-auto h-16 font-bold text-3xl px-4 rounded-2xl bg-stone-400" onChange={handleCoinChange} value={coinValue} disabled={selectCheck(selectValue)} />
 
-      <div className="flex justify-end">
-        <select onChange={handleSelectChange} className="w-3/12">
+      <div className="flex justify-start mr-auto">
+        <select onChange={handleSelectChange} className="w-3/12 bg-amber-500 pl-4 text-2xl rounded-2xl font-bold">
           <option value="">---Select Currency---</option>
           {selectState.map(({item, itemValue}) => (
-            <option key={item} value={itemValue}>{item.toUpperCase()}</option>        
+            <option key={item} className='bg-emerald-700 text-xl font-bold' value={itemValue}>{item.toUpperCase()}</option>        
           ))}
         </select>
-        <input type='number' className="w-7/12" onChange={handleCurrencyChange} value={currencyValue} disabled={selectCheck(selectValue)} />
+        <input type='number' className="w-7/12 h-16 bg-slate-400 font-bold text-3xl px-4 rounded-2xl" onChange={handleCurrencyChange} value={currencyValue} disabled={selectCheck(selectValue)} />
       </div>
     </div>
   );
