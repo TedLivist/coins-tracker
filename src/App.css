@@ -16,19 +16,3 @@ body {
   width: 90%;
   margin: auto;
 }
-
-.coin-logo {
-  background-color: red;
-  border-radius: 1rem;
-  text-align: center;
-  padding: 2rem 0;
-}
-
-.coin-logo img {
-  height: 7rem;
-  width: 7rem;
-}
-
-.coin-logo h2 {
-  margin-bottom: 0;
-}
