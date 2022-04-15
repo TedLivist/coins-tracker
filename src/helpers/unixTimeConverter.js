@@ -1,4 +1,4 @@
-export const unixTimeConverter = (unixTimestamp) => {
+export const unixTimeConverter = (unixTimestamp, days) => {
   let date = new Date(unixTimestamp)
   
   let month = date.toLocaleDateString('en-US', {month: 'short'})
@@ -23,7 +23,12 @@ export const unixTimeConverter = (unixTimestamp) => {
   }
 
   let day = date.toLocaleDateString('en-US', {weekday: 'short'})
-  
-  const formatDate = day + ' ' + dayNum + ' ' + month + ' ' + year + ' ' + hours + ':' + minutes + ':' + seconds
+
+  let formatDate = day + ' ' + dayNum + ' ' + month + ' ' + year + ' ' + hours + ':' + minutes + ':' + seconds
+
+  if (days == 1) {
+    formatDate = day + ' ' + hours + ':' + minutes
+  }
+
   return formatDate
 }

@@ -6,10 +6,10 @@ export const getCoinChart = async (coinId, vsCurrency, days) => {
 
   let filteredValues = []
   const dataArray = data.prices
-  if (days == 1) {
-    filteredValues = dataArray.filter((item) => (dataArray.indexOf(item) % 12) == 0)
-  } else if (days == 30) {
-    filteredValues = dataArray.filter((item) => (dataArray.indexOf(item) % 30) == 0)
+  if (days === 1) {
+    filteredValues = dataArray.filter((item) => (dataArray.indexOf(item) % 12) === 0)
+  } else if (days === 30) {
+    filteredValues = dataArray.filter((item) => (dataArray.indexOf(item) % 30) === 0)
   }
 
   // const dataArray = data.prices.slice(-20)
@@ -17,7 +17,7 @@ export const getCoinChart = async (coinId, vsCurrency, days) => {
     return Number(arr[1].toFixed(3))
   })
   const timeStamps = filteredValues.map((arr) => {
-    return unixTimeConverter(arr[0])
+    return unixTimeConverter(arr[0], days)
   })
 
   return {timeStamps, prices}
