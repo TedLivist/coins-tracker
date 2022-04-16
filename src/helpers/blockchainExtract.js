@@ -8,7 +8,7 @@ export const blockchainExtract = (urlsArray) => {
   const nameAndUrl = []
   for (let url of usefulUrls) {
     const cappedName = capitalize(url.split('//')[1].split('/')[0].split('.')[0])
-    nameAndUrl.push({cappedName, url, shortUrl: `${url.slice(0, 25)}...`})
+    nameAndUrl.push({cappedName, url, shortUrl: `${url.slice(0, 15)}...`})
   }
 
   const uniqueNameAndUrls = nameAndUrl.filter((value, index, self) =>

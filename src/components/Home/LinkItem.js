@@ -31,10 +31,10 @@ const LinkItem = (props) => {
   })
 
   return (
-    <div className='grid grid-cols-2'>
-      <div>{title}</div>
+    <div className='grid grid-cols-2 mb-2 text-xl'>
+      <div className='font-bold'>{title.toUpperCase()}</div>
       
-      <div className='text-right'>
+      <div className='text-right break-words'>
         <CopyToClipboard text={mainLink === undefined ? link : mainLink} onCopy={handleCopy}>
           <div>
             <Tooltip

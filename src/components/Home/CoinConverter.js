@@ -49,7 +49,7 @@ const CoinConverter = (props) => {
 
         <div className='grid grid-cols-3'>
           <select onChange={handleSelectChange} className='border-2 border-neutral-900 border-r-0 outline-none rounded-l-xl text-center px-3 py-2 font-bold text'>
-            <option value="">---Select Currency---</option>
+            <option value="">Select Currency---</option>
             {selectState.map(({item, itemValue}) => (
               <option key={item} className='' value={itemValue}>{item.toUpperCase()}</option>        
             ))}
