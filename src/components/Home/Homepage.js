@@ -46,7 +46,7 @@ const Homepage = () => {
             allTimeHigh={{ item: "All-Time High", value: coinProps.market_data.ath.usd }}
             allTimeLow={{ item: "All-Time Low", value: coinProps.market_data.atl.usd }}
           />
-          <CoinConverter otherCurrencies={coinProps.market_data.current_price} />
+          <CoinConverter otherCurrencies={coinProps.market_data.current_price} tokenSymbol={coinProps.symbol} />
           <HomeLinks
             website={coinProps.links.homepage[0]}
             blockchainSites={coinProps.links.blockchain_site}

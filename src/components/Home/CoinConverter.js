@@ -3,7 +3,7 @@ import { coinSelect } from '../../helpers/coinSelect'
 
 const CoinConverter = (props) => {
 
-  const {otherCurrencies} = props
+  const {otherCurrencies, tokenSymbol} = props
   const [selectState, setSelectState] = useState([])
 
   const [coinValue, setCoinValue] = useState(0)
@@ -39,17 +39,23 @@ const CoinConverter = (props) => {
   }
 
   return (
-    <div className='grid grid-cols-2 gap-4'>
-      <input type='number' className="w-10/12 ml-auto h-16 font-bold text-3xl px-4 rounded-2xl bg-stone-400" onChange={handleCoinChange} value={coinValue} disabled={selectCheck(selectValue)} />
+    <div className='px-3 mb-3'>
+      <h2 className='text-center'>Converter</h2>
+      <div className=''>
+        <div className='grid xs:mb-2 grid-cols-3'>
+          <div className='border-2 border-neutral-900 border-r-0 rounded-l-xl text-center px-3 py-2 font-bold text'>{tokenSymbol.toUpperCase()}</div>
+          <input type='number' className={`${selectValue == '' ? 'bg-gray-400' : 'bg-slate-100'} outline-none rounded-r-xl px-3 py-2 border-2 border-neutral-900 border-l-0 text-xl font-bold col-span-2`} onChange={handleCoinChange} value={coinValue} disabled={selectCheck(selectValue)} />
+        </div>
 
-      <div className="flex justify-start mr-auto">
-        <select onChange={handleSelectChange} className="w-3/12 bg-amber-500 pl-4 text-2xl rounded-2xl font-bold">
-          <option value="">---Select Currency---</option>
-          {selectState.map(({item, itemValue}) => (
-            <option key={item} className='bg-emerald-700 text-xl font-bold' value={itemValue}>{item.toUpperCase()}</option>        
-          ))}
-        </select>
-        <input type='number' className="w-7/12 h-16 bg-slate-400 font-bold text-3xl px-4 rounded-2xl" onChange={handleCurrencyChange} value={currencyValue} disabled={selectCheck(selectValue)} />
+        <div className='grid grid-cols-3'>
+          <select onChange={handleSelectChange} className='border-2 border-neutral-900 border-r-0 outline-none rounded-l-xl text-center px-3 py-2 font-bold text'>
+            <option value="">---Select Currency---</option>
+            {selectState.map(({item, itemValue}) => (
+              <option key={item} className='' value={itemValue}>{item.toUpperCase()}</option>        
+            ))}
+          </select>
+          <input type='number' className={`${selectValue == '' ? 'bg-gray-400' : 'bg-slate-100'} rounded-r-xl outline-none px-3 py-2 border-2 border-neutral-900 border-l-0 text-xl font-bold col-span-2`} onChange={handleCurrencyChange} value={currencyValue} disabled={selectCheck(selectValue)} />
+        </div>
       </div>
     </div>
   );

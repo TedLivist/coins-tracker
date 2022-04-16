@@ -35,12 +35,12 @@ const Markets = (props) => {
             }
 
             return (
-              <tr key={market.bid_ask_spread_percentage}>
+              <tr key={market.converted_volume.usd}>
                 <OneMarket
                   base={base}
                   target={target}
                   name={market.market.name}
-                  price={market.converted_last.usd.toFixed(3)}
+                  price={market.converted_last.usd.toFixed(2)}
                   volume={market.converted_volume.usd.toFixed(2)}
                   trade_link = {market.trade_url}
                 />
