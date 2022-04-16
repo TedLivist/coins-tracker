@@ -33,9 +33,18 @@ const ChartDisplay = (props) => {
     setSubject('Last Month')
   }
 
+  const handleDaily = (e) => {
+    e.preventDefault()
+
+
+  }
+
   return (
-    <>
-      <button onClick={handleMonth}>Last Month</button>
+    <div className='mt-5'>
+      <div className='text-center'>
+        <button className='btn btn-primary' onClick={handleMonth}>Last Month</button>
+        <button className='btn btn-primary' onClick={handleDaily}>24 hrs</button>
+      </div>
       <div className='overflow-auto'>
         <Line
           datasetIdKey='id'
@@ -96,7 +105,7 @@ const ChartDisplay = (props) => {
           }}
         />
       </div>
-    </>
+    </div>
   );
 }
  
