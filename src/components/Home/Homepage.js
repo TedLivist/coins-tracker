@@ -15,15 +15,19 @@ const Homepage = () => {
   const [coinProps, setCoinProps] = useState([])
 
   const coins = useSelector(state => state.coins)
-  useEffect(async () => {
-    if (searchCoin === '' && coins.length > 0) {
-      setSearchedCoin(coins[0].id)
-    } else {
-      const coin = await getCoin('openocean')
-      setCoinProps(coin)
-      // console.log(coin)
-      setSearchedCoin(coin.id)
+  useEffect(() => {
+    const searchFunc = async () => {
+      if (searchCoin === '' && coins.length > 0) {
+        setSearchedCoin(coins[0].id)
+      } else {
+        const coin = await getCoin('openocean')
+        setCoinProps(coin)
+        // console.log(coin)
+        setSearchedCoin(coin.id)
+      }
     }
+
+    searchFunc()
   }, [coins, searchCoin])
 
   const callback = useCallback((coin) => {

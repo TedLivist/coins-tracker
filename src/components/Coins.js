@@ -28,8 +28,10 @@ const Coins = () => {
               key={coin.id}
               coinId={coin.id}
               backendCoinId={coin.backendId}
-              lastPrice={coin.market_data.current_price.usd}
+              coinWorth={coin.market_data.current_price.usd * coin.qty}
+              totalWorth={worth}
               quantity={coin.qty}
+              coinImage={coin.image.thumb}
             />
           ))}
       </div>

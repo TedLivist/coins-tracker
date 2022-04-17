@@ -12,7 +12,7 @@ const CoinConverter = (props) => {
 
   useEffect(() => {
     setSelectState(coinSelect(otherCurrencies))
-  }, [])
+  }, [otherCurrencies])
 
   const handleCoinChange = (e) => {
     setCoinValue(e.target.value)
@@ -44,7 +44,7 @@ const CoinConverter = (props) => {
       <div className=''>
         <div className='grid xs:mb-2 grid-cols-3'>
           <div className='border-2 border-neutral-900 bg-white border-r-0 rounded-l-xl text-center px-3 py-2 font-bold'>{tokenSymbol.toUpperCase()}</div>
-          <input type='number' className={`${selectValue == '' ? 'bg-gray-400' : 'bg-slate-100'} outline-none rounded-r-xl px-3 py-2 border-2 border-neutral-900 border-l-0 text-xl font-bold col-span-2`} onChange={handleCoinChange} value={coinValue} disabled={selectCheck(selectValue)} />
+          <input type='number' className={`${selectValue === '' ? 'bg-gray-400' : 'bg-slate-100'} outline-none rounded-r-xl px-3 py-2 border-2 border-neutral-900 border-l-0 text-xl font-bold col-span-2`} onChange={handleCoinChange} value={coinValue} disabled={selectCheck(selectValue)} />
         </div>
 
         <div className='grid grid-cols-3'>
@@ -54,7 +54,7 @@ const CoinConverter = (props) => {
               <option key={item} className='' value={itemValue}>{item.toUpperCase()}</option>        
             ))}
           </select>
-          <input type='number' className={`${selectValue == '' ? 'bg-gray-400' : 'bg-slate-100'} rounded-r-xl outline-none px-3 py-2 border-2 border-neutral-900 border-l-0 text-xl font-bold col-span-2`} onChange={handleCurrencyChange} value={currencyValue} disabled={selectCheck(selectValue)} />
+          <input type='number' className={`${selectValue === '' ? 'bg-gray-400' : 'bg-slate-100'} rounded-r-xl outline-none px-3 py-2 border-2 border-neutral-900 border-l-0 text-xl font-bold col-span-2`} onChange={handleCurrencyChange} value={currencyValue} disabled={selectCheck(selectValue)} />
         </div>
       </div>
     </div>

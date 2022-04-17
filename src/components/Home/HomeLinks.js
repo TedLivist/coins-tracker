@@ -10,13 +10,13 @@ const HomeLinks = (props) => {
 
   useEffect(() => {
     setFormattedUrls(blockchainExtract(blockchainSites))
-  }, [])
+  }, [blockchainSites])
 
   return (
     <div className='px-3 mt-5 mb-5'>
       <h2 className='text-center'>Links</h2>
       <LinkItem title='Website' link={website} />
-      <h4 className='border-b-2 border-black mt-3'>Blockchain Links</h4>
+      <h4 className='border-b-2 border-black mt-3'>Explorers</h4>
       {formattedUrls.map((url) => (
         <div key={url.cappedName}>
           <LinkItem title={url.cappedName} link={url.shortUrl} mainLink={url.url} />
