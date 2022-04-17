@@ -33,17 +33,24 @@ const ChartDisplay = (props) => {
     setSubject('Last Month')
   }
 
-  const handleDaily = (e) => {
+  const handleDaily = async (e) => {
     e.preventDefault()
 
-
+    const {timeStamps, prices} = await getCoinChart(chartCoin, 'usd', 1)
+    setChartLabels(timeStamps)
+    setChartData(prices)
+    setSubject('24 hrs')
   }
 
   return (
     <div className='mt-5'>
       <div className='text-center'>
-        <button className='btn btn-primary' onClick={handleMonth}>Last Month</button>
-        <button className='btn btn-primary' onClick={handleDaily}>24 hrs</button>
+        <div className={subject !== '24 hrs' ? 'hidden' : ''}>
+          <button className='btn btn-primary' onClick={handleMonth}>Last Month</button>
+        </div>
+        <div className={subject !== 'Last Month' ? 'hidden' : ''}>
+          <button className='hidden btn btn-primary' onClick={handleDaily}>24 hrs</button>
+        </div>
       </div>
       <div className='overflow-auto'>
         <Line
@@ -82,20 +89,26 @@ const ChartDisplay = (props) => {
             },
             scales: {
               y: {
+                grid: {
+                  display: false
+                },
                 ticks: {
                   color: 'blue',
                   font: {
-                    size: 14,
+                    size: 10,
                   },
-                  stepSize: 2,
+                  stepSize: 8,
                   beginAtZero: true,
                 },
               },
               x: {
+                grid: {
+                  display: false
+                },
                 ticks: {
                   color: 'blue',
                   font: {
-                    size: 14,
+                    size: 10,
                   },
                   stepSize: 1,
                   beginAtZero: true,
