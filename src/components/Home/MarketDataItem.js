@@ -4,11 +4,15 @@ const MarketDataItem = (props) => {
 
   let {item, value} = props
 
-  if (item === 'Market Cap' || item === 'Circulating Supply' || item === 'Volume') {
-    value = value.toLocaleString('en-US')
+  if (item !== 'Price Change % (24h)') {
+    value = `$${value.toLocaleString('en-US')}`
   }
 
   let color = ''
+
+  if (item === 'Price Change % (24h)') {
+    value = value.toFixed(3)
+  }
 
   if (item === 'Price Change % (24h)' && value > 0) {
     color = 'text-green-700'

@@ -31,7 +31,7 @@ const Homepage = () => {
   }, [setSearchedCoin])
 
   return (
-    <div>
+    <div className='bg-slate-50'>
       <SearchCoin trackedCoins={coins} parentCallback={callback} />
       <h3>{searchCoin}</h3>
       <RetrievedCoin retrievedCoin={searchCoin} />
