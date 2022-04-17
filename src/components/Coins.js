@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import OneCoin from './OneCoin';
+import 'boxicons';
 
 const Coins = () => {
   const coins = useSelector(state => state.coins)
@@ -9,17 +10,29 @@ const Coins = () => {
     .map((coin) => ( coin.qty * coin.market_data.current_price.usd ))
     .reduce((a, b) => ( a + b ), 0)
     .toFixed(3)
+
+  const totalPriceChange = Number(coins.map((coin) => coin.market_data.price_change_24h)
+    .reduce((a, b) => (a + b), 0)
+    .toFixed(3))
+  console.log(totalPriceChange)
   
-    console.log(coins[0])
+  console.log(coins[0])
   
   return (
     <div className='bg-red-400 h-screen'>
       <div className='font-mono px-3 pt-5 pb-14 mb-3 bg-gradient-to-b from-blue-300 to-sky-200 rounded-b-3xl'>
         <span className='text-xl'>Porfolio</span>
         <div className='font-bold text-3xl'>${worth}</div>
+        <div className='mt-4'>24 hrs</div>
+        <div className='flex'>
+          ${totalPriceChange}
+          <div className='ml-1'>
+            {totalPriceChange > 0 ? <box-icon size='1rem' color='green' name='chevrons-up' /> : <box-icon size='2rem' color='red' name='chevrons-down' />}
+          </div>
+        </div>
       </div>
 
-      <div className='px-4'>
+      <div className='px-3'>
         {coins.length === 0 && (
           <h2>No coins yet...</h2>
         )}
