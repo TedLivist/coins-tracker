@@ -10,22 +10,33 @@ const Coins = () => {
     .reduce((a, b) => ( a + b ), 0)
     .toFixed(3)
   
+    console.log(coins[0])
+  
   return (
-    <div>
-      <h2>The Coins page</h2>
-      <h4>Portfolio worth: ${worth}</h4>
-      {coins.length === 0 && (
-        <h2>No coins yet...</h2>
-      )}
-        {coins.map((coin) => (
-          <OneCoin
-            key={coin.id}
-            coinId={coin.id}
-            backendCoinId={coin.backendId}
-            lastPrice={coin.market_data.current_price.usd}
-            quantity={coin.qty}
-          />
-        ))}
+    <div className='bg-red-400 h-screen'>
+      <div className='font-mono px-3 pt-5 pb-14 mb-3 bg-gradient-to-b from-blue-300 to-sky-200 rounded-b-3xl'>
+        <span className='text-xl'>Porfolio</span>
+        <div className='font-bold text-3xl'>${worth}</div>
+      </div>
+
+      <div className='px-4'>
+        {coins.length === 0 && (
+          <h2>No coins yet...</h2>
+        )}
+          {coins.map((coin) => (
+            <OneCoin
+              key={coin.id}
+              coinId={coin.id}
+              backendCoinId={coin.backendId}
+              lastPrice={coin.market_data.current_price.usd}
+              quantity={coin.qty}
+            />
+          ))}
+      </div>
+
+      <div className='bg-white h-20 fixed left-0 right-0 bottom-0'>
+        <span>Haha</span>
+      </div>
     </div>
   );
 }
