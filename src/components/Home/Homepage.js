@@ -19,7 +19,7 @@ const Homepage = () => {
     if (searchCoin === '' && coins.length > 0) {
       setSearchedCoin(coins[0].id)
     } else {
-      const coin = await getCoin('bitcoin')
+      const coin = await getCoin('fear')
       setCoinProps(coin)
       // console.log(coin)
       setSearchedCoin(coin.id)
@@ -37,7 +37,7 @@ const Homepage = () => {
       <RetrievedCoin retrievedCoin={searchCoin} />
       {coinProps.length !== 0 &&
         <div className='side-margin'>
-          <CoinLogo coinName={coinProps.name} coinLogo={coinProps.image.large} />
+          <CoinLogo coinName={coinProps.name} coinLogo={coinProps.image.thumb} coinPrice={coinProps.market_data.current_price.usd} />
           <MarketData
             marketCap={{ item: "Market Cap", value: coinProps.market_data.market_cap.usd }}
             circulatingSupply={{ item: "Circulating Supply", value: coinProps.market_data.circulating_supply }}

@@ -2,12 +2,15 @@ import React from 'react';
 
 const CoinLogo = (props) => {
 
-  const {coinName, coinLogo} = props
+  const {coinName, coinLogo, coinPrice} = props
 
   return (
-    <div className='bg-red-600 p-4 rounded-2xl mb-4'>
-      <img src={coinLogo} className='h-24 mx-auto rounded-full' />
-      <h2 className='text-center'>{coinName}</h2>
+    <div className='py-10 bg-white px-4 rounded-2xl mb-4 font-mono'>
+      <div className='flex items-center'>
+        <img src={coinLogo} className='xs:h-12 sm:h-14 rounded-full' />
+        <span className='text-3xl font-bold ml-3'>{coinName}</span>
+      </div>
+      <div className='text-5xl mb-4 font-bold mt-6'>${coinPrice.toFixed(4)}</div>
     </div>
   );
 }
