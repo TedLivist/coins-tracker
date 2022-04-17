@@ -62,10 +62,8 @@ const ChartDisplay = (props) => {
                 id: 1,
                 label: subject,
                 data: chartData,
-                fill: true,
-                height: 100,
-                borderColor: 'yellow',
-                borderWidth: '1',
+                borderColor: 'blue',
+                borderWidth: '2',
                 backgroundColor: [
                   'blue',
                   'teal'
@@ -74,7 +72,7 @@ const ChartDisplay = (props) => {
               }
             ]
           }}
-          height='250'
+          height='400'
           options={{
             maintainAspectRatio: false,
             plugins: {
@@ -88,6 +86,11 @@ const ChartDisplay = (props) => {
               },
             },
             tension: 0.4,
+            elements: {
+              point: {
+                radius: 1.5
+              }
+            },
             scales: {
               y: {
                 grid: {
@@ -96,7 +99,7 @@ const ChartDisplay = (props) => {
                 ticks: {
                   color: 'blue',
                   font: {
-                    size: 10,
+                    size: 13,
                   },
                   stepSize: 8,
                   beginAtZero: true,
@@ -109,7 +112,7 @@ const ChartDisplay = (props) => {
                 ticks: {
                   color: 'blue',
                   font: {
-                    size: 10,
+                    size: 13,
                   },
                   stepSize: 1,
                   beginAtZero: true,
