@@ -22,3 +22,7 @@ body {
   margin-bottom: 4px;
   box-shadow: inset 3px;
 }
+
+.bg-violet {
+  background-color: #364267;
+}
