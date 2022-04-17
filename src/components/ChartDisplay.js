@@ -87,6 +87,7 @@ const ChartDisplay = (props) => {
                 },
               },
             },
+            tension: 0.4,
             scales: {
               y: {
                 grid: {
