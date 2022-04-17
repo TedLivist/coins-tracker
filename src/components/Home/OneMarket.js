@@ -10,8 +10,8 @@ const OneMarket = (props) => {
           {base}/{target}
         </a>
       </td>
-      <td>{price}</td>
-      <td>{`$${volume}`}</td>
+      <td>{`$${Number(price).toLocaleString('en-US')}`}</td>
+      <td>{`$${Number(volume).toLocaleString('en-US')}`}</td>
     </>
   );
 }

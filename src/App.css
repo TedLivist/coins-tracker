@@ -16,3 +16,9 @@ body {
   width: 90%;
   margin: auto;
 }
+
+.graph-border {
+  border: 6px ridge;
+  margin-bottom: 4px;
+  box-shadow: inset 3px;
+}

@@ -72,7 +72,7 @@ const ChartDisplay = (props) => {
               }
             ]
           }}
-          height='400'
+          height='350'
           options={{
             maintainAspectRatio: false,
             plugins: {
