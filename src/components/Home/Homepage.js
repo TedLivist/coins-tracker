@@ -19,6 +19,7 @@ const Homepage = () => {
     const searchFunc = async () => {
       if (searchCoin === '' && coins.length > 0) {
         setSearchedCoin(coins[0].id)
+        setCoinProps(coins[0])
       } else {
         const coin = await getCoin('openocean')
         setCoinProps(coin)
@@ -32,11 +33,16 @@ const Homepage = () => {
 
   const callback = useCallback((coin) => {
     setSearchedCoin(coin)
+    console.log(coin)
   }, [setSearchedCoin])
+
+  const coinPropsCallback = useCallback((coinObj) => {
+    setCoinProps(coinObj)
+  }, [setCoinProps])
 
   return (
     <div className='bg-slate-50'>
-      <SearchCoin trackedCoins={coins} parentCallback={callback} />
+      <SearchCoin trackedCoins={coins} parentCallback={callback} propsCallback={coinPropsCallback} />
       <h3>{searchCoin}</h3>
       <RetrievedCoin retrievedCoin={searchCoin} />
       {coinProps.length !== 0 &&

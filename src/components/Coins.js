@@ -19,7 +19,7 @@ const Coins = () => {
   console.log(coins[0])
   
   return (
-    <div className='bg-red-400 h-screen'>
+    <div className='bg-red-400'>
       <div className='font-mono px-3 pt-5 pb-14 mb-3 bg-gradient-to-b from-blue-300 to-sky-200 rounded-b-3xl'>
         <span className='text-xl'>Porfolio</span>
         <div className='font-bold text-3xl'>${worth}</div>
@@ -49,7 +49,7 @@ const Coins = () => {
           ))}
       </div>
 
-      <div className='bg-white h-20 fixed left-0 right-0 bottom-0'>
+      <div className='bg-white h-20 border-t-2 border-solid fixed left-0 right-0 bottom-0'>
         <span>Haha</span>
       </div>
     </div>
