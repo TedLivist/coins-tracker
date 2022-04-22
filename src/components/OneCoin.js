@@ -23,11 +23,11 @@ const OneCoin = (props) => {
   }
 
   return (
-    <div className='flex border-2 border-slate-900 p-1 rounded-2xl mt-3'>
+    <div className='flex border-2 border-slate-900 p-1 rounded-3xl mt-3'>
       <div className='flex items-center'>
         <img src={coinImage} alt='coin-sticker' className='h-10' />
       </div>
-      <div className='grid w-2/4'>
+      <div className='grid w-2/4 ml-2'>
         <div>{quantity}</div>
         <div>{capitalize(coinId)}</div>
         <div>{coinWorth.toFixed(3)}({percentWorth}%)</div>

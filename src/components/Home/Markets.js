@@ -22,7 +22,7 @@ const Markets = (props) => {
           {markets.map((market) => {
             let base = ''
             let target = ''
-            if (market.base !== market.coin_id.toUpperCase()) {
+            if (market.base.length > 10) {
               base = market.coin_id.toUpperCase()
             } else {
               base = market.base
