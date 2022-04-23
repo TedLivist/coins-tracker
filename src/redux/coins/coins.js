@@ -53,7 +53,9 @@ const reducer = (state = initialState, action) => {
           return { ...coin, qty: action.payload.qty };
         })
     case CLEAR_COINS:
-      state = initialState
+      return (
+        state = initialState
+      )
     default:
       return state
   }
