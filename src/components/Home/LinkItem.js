@@ -34,7 +34,7 @@ const LinkItem = (props) => {
     <div className='flex-col md:grid md:grid-cols-2 mb-2 text-xl'>
       <div className='font-bold'>{title.toUpperCase()}</div>
       
-      <div className='mt-2 mb-4 break-words md:text-right'>
+      <div className='mt-2 mb-4 break-words'>
         <CopyToClipboard text={mainLink === undefined ? link : mainLink} onCopy={handleCopy}>
           <div>
             <Tooltip

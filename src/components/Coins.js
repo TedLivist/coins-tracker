@@ -40,7 +40,7 @@ const Coins = () => {
 
     if (coins.length > 1) {
       coinsPriceChange = filteredCoins.sort((a, b) => (
-        (b.market_data.price_change_24h) - (a.market_data.price_change_24h)
+        (b.market_data.price_change_24h * b.qty) - (a.market_data.price_change_24h * a.qty)
       ))
     }
 
@@ -50,7 +50,14 @@ const Coins = () => {
   const handleMarketCap = (e) => {
     e.preventDefault()
 
-    coins
+    let coinsMarketCap = []
+    if (coins.length > 1) {
+      coinsMarketCap = filteredCoins.sort((a, b) => (
+        (b.market_data.market_cap.usd) - (a.market_data.market_cap.usd)
+      ))
+    }
+
+    setFIlteredCoins([...coinsMarketCap])
   }
   
   return (
@@ -90,7 +97,7 @@ const Coins = () => {
 
           <button className='btn btn-primary' onClick={handlePriceChange}>Sort by price change</button>
 
-          <button className='btn btn-warning'>Sort by MC</button>
+          <button className='btn btn-warning' onClick={handleMarketCap}>Sort by MC</button>
         
       </div>
     </div>
