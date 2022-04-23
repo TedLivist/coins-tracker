@@ -39,7 +39,6 @@ const OneCoin = (props) => {
         </div>
       </div>
         <CoinModal open={isOpen} coinId={coinId} backendCoinId={backendCoinId} quantity={quantity} userToken={token} onClose={() => setIsOpen(false)} />
-           
     </div>
   );
 }

@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import OneCoin from './OneCoin';
 import 'boxicons';
 
 const Coins = () => {
   const coins = useSelector(state => state.coins)
-
+  const [filteredCoins, setFIlteredCoins] = useState([])
+  
   const worth = coins.filter(coin => coin.qty > 0)
     .map((coin) => ( coin.qty * coin.market_data.current_price.usd ))
     .reduce((a, b) => ( a + b ), 0)
@@ -15,8 +16,23 @@ const Coins = () => {
     .reduce((a, b) => (a + b), 0)
     .toFixed(3))
   console.log(totalPriceChange)
-  
-  console.log(coins[0])
+
+  useEffect(() => {
+    setFIlteredCoins(coins)
+  }, [coins])
+
+  const handleWorth = (e) => {
+    e.preventDefault()
+    let worthOfCoins = []
+
+    if (coins.length > 1) {
+      worthOfCoins = filteredCoins.sort((a, b) => {
+        return (b.market_data.current_price.usd * b.qty) - (a.market_data.current_price.usd * a.qty)
+      })
+    }
+
+    setFIlteredCoins([...worthOfCoins])
+  }
   
   return (
     <div className='bg-red-400'>
@@ -36,7 +52,7 @@ const Coins = () => {
         {coins.length === 0 && (
           <h2>No coins yet...</h2>
         )}
-          {coins.map((coin) => (
+          {filteredCoins.map((coin) => (
             <OneCoin
               key={coin.id}
               coinId={coin.id}
@@ -50,7 +66,13 @@ const Coins = () => {
       </div>
 
       <div className='bg-white h-20 border-t-2 border-solid fixed left-0 right-0 bottom-0'>
-        <span>Haha</span>
+        
+          <button className='btn btn-secondary' onClick={handleWorth}>Sort by worth</button>
+
+          <button className='btn btn-primary'>Sort by price change</button>
+
+          <button className='btn btn-warning'>Sort by MC</button>
+        
       </div>
     </div>
   );

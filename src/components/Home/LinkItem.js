@@ -13,8 +13,6 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-console.log(window.screen.width)
-
 const LinkItem = (props) => {
 
   const classes = useStyles()
@@ -36,7 +34,7 @@ const LinkItem = (props) => {
     <div className='flex-col md:grid md:grid-cols-2 mb-2 text-xl'>
       <div className='font-bold'>{title.toUpperCase()}</div>
       
-      <div className='mt-2 mb-4 break-words'>
+      <div className='mt-2 mb-4 break-words md:text-right'>
         <CopyToClipboard text={mainLink === undefined ? link : mainLink} onCopy={handleCopy}>
           <div>
             <Tooltip
@@ -50,7 +48,7 @@ const LinkItem = (props) => {
               placement="top"
               arrow
             >
-              <span className='hover:bg-slate-400 hover:rounded-lg hover:p-1 hover:cursor-pointer'>{link}</span>
+              <span className='hover:bg-slate-400 hover:p-1 hover:cursor-pointer'>{link}</span>
             </Tooltip>
           </div>
         </CopyToClipboard>
