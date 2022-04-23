@@ -19,7 +19,7 @@ const HomeLinks = (props) => {
       <h4 className='border-b-2 border-black mt-3'>Explorers</h4>
       {formattedUrls.map((url) => (
         <div key={url.cappedName}>
-          <LinkItem title={url.cappedName} link={url.shortUrl} mainLink={url.url} />
+          <LinkItem title={url.cappedName} link={url.url} />
         </div>
       ))}
       {chatUrls[0] !== '' && (
