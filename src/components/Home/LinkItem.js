@@ -13,6 +13,8 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
+console.log(window.screen.width)
+
 const LinkItem = (props) => {
 
   const classes = useStyles()
