@@ -40,7 +40,7 @@ const Markets = (props) => {
                   base={base}
                   target={target}
                   name={market.market.name}
-                  price={market.converted_last.usd.toFixed(2)}
+                  price={market.converted_last.usd}
                   volume={market.converted_volume.usd.toFixed(2)}
                   trade_link = {market.trade_url}
                 />

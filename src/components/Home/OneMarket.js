@@ -2,6 +2,7 @@ import React from 'react';
 
 const OneMarket = (props) => {
   const {name, base, target, volume, price, trade_link} = props
+  console.log('price', price)
   return (
     <>
       <th className='text-left'>{name}</th>
@@ -10,7 +11,7 @@ const OneMarket = (props) => {
           {base}/{target}
         </a>
       </td>
-      <td>{`$${Number(price).toFixed(2).toLocaleString('en-US')}`}</td>
+      <td>{`$${price}`}</td>
       <td>{`$${Number(volume).toLocaleString('en-US')}`}</td>
     </>
   );
