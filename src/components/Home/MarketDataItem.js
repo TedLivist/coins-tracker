@@ -21,9 +21,9 @@ const MarketDataItem = (props) => {
   }
 
   return (
-    <div className={`${item === 'All-Time Low' ? '' : 'border-b-2 border-solid border-gray-700'} grid grid-cols-2 py-4 text-2xl px-0 font-semibold`}>
+    <div className={`${item === 'All-Time Low' ? '' : 'border-b-2 border-solid border-gray-700'} flex-col py-4 text-2xl px-0 font-semibold`}>
       <div>{item}</div>
-      <div className={`${color} text-right`}>{value}</div>
+      <div className={`${color} mt-2 overflow-hidden`}>{value}</div>
     </div>
   );
 }

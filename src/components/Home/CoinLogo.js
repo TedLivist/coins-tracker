@@ -10,7 +10,7 @@ const CoinLogo = (props) => {
         <img src={coinLogo} className='xs:h-12 sm:h-14 rounded-full' alt='coin-sticker' />
         <span className='text-3xl font-bold ml-3'>{coinName}</span>
       </div>
-      <div className='text-5xl mb-4 font-bold mt-6'>${coinPrice.toFixed(4)}</div>
+      <div className='text-5xl mb-4 font-bold mt-6 overflow-y-hidden'>${coinPrice}</div>
     </div>
   );
 }

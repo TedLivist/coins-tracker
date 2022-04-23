@@ -21,7 +21,7 @@ const Homepage = () => {
         setSearchedCoin(coins[0].id)
         setCoinProps(coins[0])
       } else {
-        const coin = await getCoin('openocean')
+        const coin = await getCoin('shiba-inu')
         setCoinProps(coin)
         // console.log(coin)
         setSearchedCoin(coin.id)
