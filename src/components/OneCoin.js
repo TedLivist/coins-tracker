@@ -30,14 +30,14 @@ const OneCoin = (props) => {
   }
 
   return (
-    <div className='flex font-mono p-1 rounded-xl mt-3 py-3 px-2 bg-blue-50' onClick={toggleVisibility}>
+    <div className='flex font-mono p-1 rounded-2xl shadow-md mt-3 py-3 px-2 bg-blue-50' onClick={toggleVisibility}>
       <div className='flex items-center'>
         <img src={coinImage} alt='coin-sticker' className='h-10' />
       </div>
       <div className='grid w-2/4 ml-2'>
         <div>{quantity}</div>
         <div>{capitalize(coinId)}</div>
-        <div>{coinWorth}({percentWorth}%)</div>
+        <div>{Math.round(coinWorth)}({percentWorth}%)</div>
       </div>
       {buttonVisibility && (
         <div className='grid items-center ml-auto'>

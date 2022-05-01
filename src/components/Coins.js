@@ -62,9 +62,9 @@ const Coins = () => {
   
   return (
     <div>
-      <div className='font-mono px-3 pt-5 pb-14 mb-3 bg-gradient-to-b from-blue-800 to-blue-600 text-white rounded-b-3xl'>
+      <div className='font-mono px-3 pt-5 pb-14 mb-3 bg-gradient-to-b from-blue-300 to-sky-200 shadow-md rounded-b-3xl'>
         <span className='text-xl'>Porfolio</span>
-        <div className='font-bold text-3xl'>${worth}</div>
+        <div className='font-bold text-3xl'>${worth }</div>
         <div className='mt-4'>24 hrs</div>
         <div className='flex'>
           ${totalPriceChange}
