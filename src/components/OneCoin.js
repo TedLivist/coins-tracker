@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faRotate } from '@fortawesome/free-solid-svg-icons'
+import { faRotate, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { useDispatch, useSelector } from 'react-redux';
 import { untrackCoinOnBackend } from '../helpers/backendMods/untrackCoinOnBackend';
 import { capitalize } from '../helpers/blockchainExtract';
@@ -25,7 +25,7 @@ const OneCoin = (props) => {
   }
 
   return (
-    <div className='flex border-2 border-slate-900 font-mono p-1 rounded-xl mt-3'>
+    <div className='flex border-2 border-slate-900 font-mono p-1 rounded-xl mt-3 px-2'>
       <div className='flex items-center'>
         <img src={coinImage} alt='coin-sticker' className='h-10' />
       </div>
@@ -34,11 +34,11 @@ const OneCoin = (props) => {
         <div>{capitalize(coinId)}</div>
         <div>{coinWorth}({percentWorth}%)</div>
       </div>
-      <div>
-        <TrackingButton trackingFunc={handleUntracking} buttonText='Untrack this coin' />
+      <div className='grid items-center ml-auto'>
+        <TrackingButton trackingFunc={handleUntracking} buttonText={<FontAwesomeIcon icon={faTrash} className="text-2xl" />} />
         <div className='bottom-9'>
           <button onClick={() => setIsOpen(true)}>
-            <FontAwesomeIcon icon={faRotate} />
+            <FontAwesomeIcon icon={faRotate} className='text-2xl' />
           </button>
         </div>
       </div>
