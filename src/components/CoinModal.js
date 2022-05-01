@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faXmark, faRotate } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch } from 'react-redux';
 import { updateBackendQuantity } from '../helpers/backendMods/updateBackendQuantity';
 import { changeQuantity } from '../redux/coins/coins';
@@ -39,7 +39,9 @@ const CoinModal = ({ open, coinId, backendCoinId, quantity, userToken, onClose }
         <div className='mb-2'>Quantity: {quantity}</div>
         <form onSubmit={handleModalSubmit} className='mb-2'>
           <input type="number" step='any' onChange={handleModalQty} value={modalQty} className='p-1 rounded-lg' />
-          <button type='submit' className='btn-sm btn-primary mt-2'>Change Quantity</button>
+          <button type='submit' className='btn-sm btn-primary mt-2 px-3'>
+            <FontAwesomeIcon icon={faRotate} />
+          </button>
         </form>
       </div>
     </div>
