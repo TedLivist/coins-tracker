@@ -20,11 +20,6 @@ const Homepage = () => {
       if (searchCoin === '' && coins.length > 0) {
         setSearchedCoin(coins[0].id)
         setCoinProps(coins[0])
-      } else {
-        const coin = await getCoin('bitcoin')
-        setCoinProps(coin)
-        // console.log(coin)
-        setSearchedCoin(coin.id)
       }
     }
 
@@ -33,7 +28,6 @@ const Homepage = () => {
 
   const callback = useCallback((coin) => {
     setSearchedCoin(coin)
-    console.log(coin)
   }, [setSearchedCoin])
 
   const coinPropsCallback = useCallback((coinObj) => {
@@ -43,7 +37,6 @@ const Homepage = () => {
   return (
     <div className='bg-slate-50'>
       <SearchCoin trackedCoins={coins} parentCallback={callback} propsCallback={coinPropsCallback} />
-      <h3>{searchCoin}</h3>
       <RetrievedCoin retrievedCoin={searchCoin} />
       {coinProps.length !== 0 &&
         <div className='side-margin'>

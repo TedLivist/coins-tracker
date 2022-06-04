@@ -5,8 +5,6 @@ const Markets = (props) => {
 
   const {markets} = props
 
-  console.log(markets)
-
   return (
     <div className='overflow-auto rounded-lg shadow'>
       <table className='table w-100'>

@@ -27,7 +27,7 @@ const RetrievedCoin = (props) => {
   }
 
   return (
-    <div>
+    <div className='px-4'>
       <strong>Retir</strong> {retrievedCoin}
       { retrievedCoin &&
         (trackedCoins.length < 3) &&

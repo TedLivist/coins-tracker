@@ -1,11 +1,11 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { clearCoins } from '../redux/coins/coins';
 import { logoutUser } from '../redux/users/users';
-import '../styles/Navbar.css';
+import { Navbar, Container, Nav } from 'react-bootstrap';
 
-const Navbar = () => {
+const NavbarComponent = () => {
 
   const checkUser = useSelector(state => state.users)
 
@@ -13,37 +13,40 @@ const Navbar = () => {
   const navigate = useNavigate()
 
   return (
-    <nav>
-      <NavLink to="/" className="nav-item">Homepage</NavLink>
+    <Navbar bg="light" expand="lg">
+      <Container>
+        <Navbar.Brand href="/">Homepage</Navbar.Brand>
 
-      
-      {checkUser.user && (
-        <NavLink to='/coins' className="nav-item">Coins</NavLink>
-      )}
-
-      {!checkUser.user && (
-        <>
-          <NavLink to='/signup' className="nav-item">Signup</NavLink>
-          <NavLink to="/login" className="nav-item">Login</NavLink>
-        </>
-      )}
-
-      {checkUser.user && (
-        <div
-          className="nav-item"
-          onClick={() => {
-            dispatch(logoutUser())
-            dispatch(clearCoins())
-            localStorage.removeItem('loggedInUser')
-            navigate('/')
-          }}
-        >
-          Logout
-        </div>
-      )}
-
-    </nav>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            {checkUser.user && (
+              <Nav.Link href="coins">Coins</Nav.Link>
+            )}
+            {!checkUser.user && (
+              <>
+                <Nav.Link href='/signup'>Signup</Nav.Link>
+                <Nav.Link href='/login'>Login</Nav.Link>
+              </>
+            )}
+            {checkUser.user && (
+              <div
+                className="nav-item"
+                onClick={() => {
+                  dispatch(logoutUser())
+                  dispatch(clearCoins())
+                  localStorage.removeItem('loggedInUser')
+                  navigate('/')
+                }}
+              >
+                Logout
+              </div>
+            )}
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
- 
-export default Navbar;
+
+export default NavbarComponent;

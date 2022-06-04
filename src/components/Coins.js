@@ -18,7 +18,7 @@ const Coins = () => {
   console.log(totalPriceChange)
 
   useEffect(() => {
-    setFIlteredCoins(coins)
+      setFIlteredCoins(coins)
   }, [coins])
 
   const handleWorth = (e) => {
@@ -74,7 +74,7 @@ const Coins = () => {
         </div>
       </div>
 
-      <div className='bg-white border-t-2 border-solid text-center pb-3'>
+      <div className='bg-white text-center pb-3'>
         <div><strong>SORT BY</strong></div>
         <button className='btn bg-blue-400 text-white mt-3' onClick={handleWorth}>Worth</button>
         <button className='btn bg-blue-400 text-white mt-3' onClick={handlePriceChange}>Price change</button>
