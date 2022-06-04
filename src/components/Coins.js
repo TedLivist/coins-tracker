@@ -25,7 +25,7 @@ const Coins = () => {
     e.preventDefault()
     let worthOfCoins = []
 
-    if (coins.length > 1) {
+    if (coins.length > 0) {
       worthOfCoins = filteredCoins.sort((a, b) => {
         return (b.market_data.current_price.usd * b.qty) - (a.market_data.current_price.usd * a.qty)
       })
@@ -38,7 +38,7 @@ const Coins = () => {
     e.preventDefault()
     let coinsPriceChange = []
 
-    if (coins.length > 1) {
+    if (coins.length > 0) {
       coinsPriceChange = filteredCoins.sort((a, b) => (
         (b.market_data.price_change_24h * b.qty) - (a.market_data.price_change_24h * a.qty)
       ))
@@ -51,7 +51,7 @@ const Coins = () => {
     e.preventDefault()
 
     let coinsMarketCap = []
-    if (coins.length > 1) {
+    if (coins.length > 0) {
       coinsMarketCap = filteredCoins.sort((a, b) => (
         (b.market_data.market_cap.usd) - (a.market_data.market_cap.usd)
       ))
@@ -74,6 +74,13 @@ const Coins = () => {
         </div>
       </div>
 
+      <div className='bg-white border-t-2 border-solid text-center pb-3'>
+        <div><strong>SORT BY</strong></div>
+        <button className='btn bg-blue-400 text-white mt-3' onClick={handleWorth}>Worth</button>
+        <button className='btn bg-blue-400 text-white mt-3' onClick={handlePriceChange}>Price change</button>
+        <button className='btn bg-blue-400 text-white mt-3' onClick={handleMarketCap}>Market Cap</button>
+      </div>
+
       <div className='px-3'>
         {coins.length === 0 && (
           <h2>No coins yet...</h2>
@@ -91,15 +98,6 @@ const Coins = () => {
           ))}
       </div>
 
-      <div className='bg-white h-20 border-t-2 border-solid fixed left-0 right-0 bottom-0'>
-        
-          <button className='btn btn-secondary' onClick={handleWorth}>Sort by worth</button>
-
-          <button className='btn btn-primary' onClick={handlePriceChange}>Sort by price change</button>
-
-          <button className='btn btn-warning' onClick={handleMarketCap}>Sort by MC</button>
-        
-      </div>
     </div>
   );
 }

@@ -37,11 +37,11 @@ const OneCoin = (props) => {
       <div className='grid w-2/4 ml-2'>
         <div>{quantity}</div>
         <div>{capitalize(coinId)}</div>
-        <div>{Math.round(coinWorth)}({percentWorth}%)</div>
+        <div>{Math.round(coinWorth)}({isNaN(percentWorth) ? 0 : percentWorth}%)</div>
       </div>
       {buttonVisibility && (
         <div className='grid items-center ml-auto'>
-          <TrackingButton trackingFunc={handleUntracking} buttonText={<FontAwesomeIcon icon={faTrash} className="text-2xl" />} />
+          <TrackingButton trackingFunc={handleUntracking} buttonText={<FontAwesomeIcon icon={faTrash} className="text-2xl text-red-500" />} />
           <div className='bottom-9'>
             <button onClick={() => setIsOpen(true)}>
               <FontAwesomeIcon icon={faRotate} className='text-2xl' />
