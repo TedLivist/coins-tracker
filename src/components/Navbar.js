@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { clearCoins } from '../redux/coins/coins';
 import { logoutUser } from '../redux/users/users';
 import { Navbar, Container, Nav } from 'react-bootstrap';
@@ -15,13 +15,13 @@ const NavbarComponent = () => {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand href="/">Homepage</Navbar.Brand>
+        <NavLink to="/">Homepage</NavLink>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             {checkUser.user && (
-              <Nav.Link href="coins">Coins</Nav.Link>
+              <NavLink to="/coins">Coins</NavLink>
             )}
             {!checkUser.user && (
               <>
