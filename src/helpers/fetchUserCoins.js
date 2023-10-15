@@ -1,7 +1,7 @@
 import { coinsParallelCall } from "./coinsParallelCall"
 
 export const fetchUserCoins = async (token) => {
-  const response = await fetch('http://localhost:3000/api/v1/coins', {
+  const response = await fetch('https://coins-tracker.onrender.com/api/v1/coins', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',

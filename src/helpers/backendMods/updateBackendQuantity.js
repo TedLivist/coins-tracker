@@ -1,5 +1,5 @@
 export const updateBackendQuantity = async (backendCoinId, coinId, quantity, userToken) => {
-  const response = await fetch(`http://localhost:3000/api/v1/coins/${backendCoinId}`, {
+  const response = await fetch(`https://coins-tracker.onrender.com/api/v1/coins/${backendCoinId}`, {
     method: 'PUT',
     mode: 'cors',
     credentials: 'same-origin',

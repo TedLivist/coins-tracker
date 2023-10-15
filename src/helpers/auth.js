@@ -1,9 +1,9 @@
 export const auth = async (authType, username) => {
   let url = ''
   if (authType === 'login') {
-    url = 'http://localhost:3000/api/v1/login'
+    url = 'https://coins-tracker.onrender.com/api/v1/login'
   } else if (authType === 'signup') {
-    url = 'http://localhost:3000/api/v1/users'
+    url = 'https://coins-tracker.onrender.com/api/v1/users'
   }
   console.log(username)
   const response = await fetch(url, {
