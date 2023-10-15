@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faRotate, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { useDispatch, useSelector } from 'react-redux';
 import { untrackCoinOnBackend } from '../helpers/backendMods/untrackCoinOnBackend';
 import { capitalize } from '../helpers/blockchainExtract';
@@ -9,6 +11,7 @@ import TrackingButton from './TrackingButton';
 const OneCoin = (props) => {
   const dispatch = useDispatch()
   const [isOpen, setIsOpen] = useState(false)
+  const [buttonVisibility, setButtonsVisibility] = useState(false)
   const { token }  = useSelector(state => state.users.user)
 
   const { coinId, backendCoinId, coinWorth, totalWorth, quantity, coinImage } = props
@@ -22,23 +25,31 @@ const OneCoin = (props) => {
     }
   }
 
+  const toggleVisibility = () => {
+    setButtonsVisibility(!buttonVisibility)
+  }
+
   return (
-    <div className='flex border-2 border-slate-900 p-1 rounded-3xl mt-3'>
+    <div className='flex font-mono rounded-2xl shadow-md mt-3 py-3 px-3 bg-blue-50' onClick={toggleVisibility}>
       <div className='flex items-center'>
         <img src={coinImage} alt='coin-sticker' className='h-10' />
       </div>
-      <div className='grid w-2/4 ml-2'>
+      <div className='grid w-2/4 ml-4'>
         <div>{quantity}</div>
         <div>{capitalize(coinId)}</div>
-        <div>{coinWorth.toFixed(3)}({percentWorth}%)</div>
+        <div>${Math.round(coinWorth)}({isNaN(percentWorth) ? 0 : percentWorth}%)</div>
       </div>
-      <div>
-        <TrackingButton trackingFunc={handleUntracking} buttonText='Untrack this coin' />
-        <div className='bottom-9'>
-          <button onClick={() => setIsOpen(true)}>Open Modal</button>
+      {buttonVisibility && (
+        <div className='grid items-center ml-auto'>
+          <TrackingButton trackingFunc={handleUntracking} buttonText={<FontAwesomeIcon icon={faTrash} className="text-2xl text-red-500" />} />
+          <div className='bottom-9'>
+            <button onClick={() => setIsOpen(true)}>
+              <FontAwesomeIcon icon={faRotate} className='text-2xl' />
+            </button>
+          </div>
         </div>
-      </div>
-        <CoinModal open={isOpen} coinId={coinId} backendCoinId={backendCoinId} quantity={quantity} userToken={token} onClose={() => setIsOpen(false)} />
+      )}
+      <CoinModal open={isOpen} coinId={coinId} backendCoinId={backendCoinId} quantity={quantity} userToken={token} onClose={() => setIsOpen(false)} />
     </div>
   );
 }

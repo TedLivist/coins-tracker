@@ -33,7 +33,7 @@ const HomeLinks = (props) => {
         </div>
       )}
       {(twitterhandle !== '' || telegramhandle !== '') && (
-        <h5 className='border-b-2 border-black mt-3'>Socials</h5>
+        <h4 className='border-b-2 border-black mt-3'>Socials</h4>
       )} 
       {twitterhandle !== '' && (
         <div>

@@ -30,17 +30,22 @@ const SearchCoin = (props) => {
         parentCallback(data.id)
       }
     } else {
-      setError('Cannot search meaningless coin')  
+      setError('Cannot search meaningless coin')
+      setInterval(() => {
+        setError('')
+      }, 3000);
     }
   }
 
   return (
-    <div>
+    <div className='text-center'>
       <form onSubmit={handleSubmit}>
-        <input type="text" name="coinItem" value={coinItem} onChange={handleSearch} />
-        {error}
-        <button type='submit'>Search Coin</button>
+        <input type="text" name="coinItem" value={coinItem} onChange={handleSearch} placeholder="Search coin" className="p-2" />
+        <button type='submit'>Search</button>
       </form>
+      <div className="text-red-700">
+        {error}
+      </div>
     </div>
   );
 }

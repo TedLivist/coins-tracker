@@ -2,7 +2,6 @@ import React from 'react';
 
 const OneMarket = (props) => {
   const {name, base, target, volume, price, trade_link} = props
-  console.log('price', price)
   return (
     <>
       <th className='text-left'>{name}</th>

@@ -26,3 +26,7 @@ body {
 .bg-violet {
   background-color: #364267;
 }
+
+.translated {
+  transform: translate(-50%, -50%);
+}

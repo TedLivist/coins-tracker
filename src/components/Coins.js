@@ -18,14 +18,14 @@ const Coins = () => {
   console.log(totalPriceChange)
 
   useEffect(() => {
-    setFIlteredCoins(coins)
+      setFIlteredCoins(coins)
   }, [coins])
 
   const handleWorth = (e) => {
     e.preventDefault()
     let worthOfCoins = []
 
-    if (coins.length > 1) {
+    if (coins.length > 0) {
       worthOfCoins = filteredCoins.sort((a, b) => {
         return (b.market_data.current_price.usd * b.qty) - (a.market_data.current_price.usd * a.qty)
       })
@@ -38,7 +38,7 @@ const Coins = () => {
     e.preventDefault()
     let coinsPriceChange = []
 
-    if (coins.length > 1) {
+    if (coins.length > 0) {
       coinsPriceChange = filteredCoins.sort((a, b) => (
         (b.market_data.price_change_24h * b.qty) - (a.market_data.price_change_24h * a.qty)
       ))
@@ -51,7 +51,7 @@ const Coins = () => {
     e.preventDefault()
 
     let coinsMarketCap = []
-    if (coins.length > 1) {
+    if (coins.length > 0) {
       coinsMarketCap = filteredCoins.sort((a, b) => (
         (b.market_data.market_cap.usd) - (a.market_data.market_cap.usd)
       ))
@@ -61,10 +61,10 @@ const Coins = () => {
   }
   
   return (
-    <div className='bg-red-400'>
-      <div className='font-mono px-3 pt-5 pb-14 mb-3 bg-gradient-to-b from-blue-300 to-sky-200 rounded-b-3xl'>
+    <div>
+      <div className='font-mono px-3 pt-5 pb-14 mb-3 bg-gradient-to-b from-blue-300 to-sky-200 shadow-md rounded-b-3xl'>
         <span className='text-xl'>Porfolio</span>
-        <div className='font-bold text-3xl'>${worth}</div>
+        <div className='font-bold text-3xl'>${worth }</div>
         <div className='mt-4'>24 hrs</div>
         <div className='flex'>
           ${totalPriceChange}
@@ -72,6 +72,13 @@ const Coins = () => {
             {totalPriceChange > 0 ? <box-icon size='1rem' color='green' name='chevrons-up' /> : <box-icon size='2rem' color='red' name='chevrons-down' />}
           </div>
         </div>
+      </div>
+
+      <div className='bg-white text-center pb-3'>
+        <div><strong>SORT BY</strong></div>
+        <button className='btn bg-blue-400 text-white mt-3' onClick={handleWorth}>Worth</button>
+        <button className='btn bg-blue-400 text-white mt-3' onClick={handlePriceChange}>Price change</button>
+        <button className='btn bg-blue-400 text-white mt-3' onClick={handleMarketCap}>Market Cap</button>
       </div>
 
       <div className='px-3'>
@@ -91,15 +98,6 @@ const Coins = () => {
           ))}
       </div>
 
-      <div className='bg-white h-20 border-t-2 border-solid fixed left-0 right-0 bottom-0'>
-        
-          <button className='btn btn-secondary' onClick={handleWorth}>Sort by worth</button>
-
-          <button className='btn btn-primary' onClick={handlePriceChange}>Sort by price change</button>
-
-          <button className='btn btn-warning' onClick={handleMarketCap}>Sort by MC</button>
-        
-      </div>
     </div>
   );
 }

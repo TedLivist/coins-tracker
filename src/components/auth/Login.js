@@ -22,7 +22,11 @@ const Login = () => {
         localStorage.setItem('loggedInUser', JSON.stringify({token, username}))
 
         const coins = await fetchUserCoins(token)
-        dispatch(addCoins(coins))
+        if (coins === undefined) {
+          dispatch(addCoins([]))
+        } else {
+          dispatch(addCoins(coins))
+        }
 
         return (
           navigate('/')
